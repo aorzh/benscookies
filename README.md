@@ -1,7 +1,0 @@
-kickstart
-=========
-
-Kickstart development
-
-
-HAHA!

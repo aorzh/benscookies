@@ -1,0 +1,148 @@
+<?php
+/**
+ * Settings for delivery module
+ * @file
+ */
+define('DELIVERY_PERMISSION', 'administer delivery');
+
+/**
+ * Implements hook_help.
+ *
+ * Displays help and module information.
+ *
+ * @param path
+ *   Which path of the site we're using to display help
+ * @param arg
+ *   Array that holds the current path as returned from arg() function
+ */
+function delivery_help($path, $arg) {
+    switch ($path) {
+        case "admin/help#delivery":
+            return '<p>' . t("Logic for delivery date") . '</p>';
+            break;
+    }
+}
+
+function delivery_init() {
+    $path = drupal_get_path('module', 'delivery');
+    $path_to_css = $path . '/css/delivery.css';
+    //$path_to_js = $path . '/js/script.js';
+    //drupal_add_js($path_to_js);
+    drupal_add_css($path_to_css);
+}
+
+/**
+ * Implement hook_permission()
+ * @return type
+ */
+function delivery_permission() {
+  return array(
+    DELIVERY_PERMISSION => array(
+      'title' => t('Administer Delivery module'),
+      'description' => t('Perform administration tasks for Delivery module.'),
+    ),
+  );
+}
+
+function delivery_commerce_checkout_page_info() {
+    $checkout_pages = array();
+
+    $checkout_pages['delivery_date'] = array(
+        'name' => t('Delivery Date'),
+        'title' => t('Delivery date'),
+        'weight' => 5,
+    );
+
+    return $checkout_pages;
+}
+
+
+/**
+ * Implements hook_commerce_checkout_pane_info()
+ */
+function delivery_commerce_checkout_pane_info() {
+  $panes = array();  
+  drupal_add_css(drupal_get_path('module', 'delivery') . '/css/delivery.css');
+  
+  $panes['delivery'] = array(
+    'title' => t('Delivery date'),
+    'page' => 'delivery_date',
+    'weight' => 10,
+    'file' => 'includes/delivery.checkout_pane.inc',
+    'base' => 'delivery_pane',
+    'collapsible' => FALSE,  
+    'collapsed' => FALSE,
+    'callbacks' => array(
+      'checkout_form' => 'delivery_pane_checkout_form', 
+     // 'checkout_form_submit' => 'delivery_pane_checkout_form_submit',
+    ),  
+  );
+  
+  return $panes;
+}
+/**
+ * 
+ * @param type $checkout_pane
+ * @return type
+ */
+function delivery_pane_settings_form($form, $form_state) {
+    
+    
+    //return system_settings_form($form);
+    return $form;
+}
+/**
+ * Show date in the order
+ * @param type $entity
+ * @param type $entity_type
+ * @param type $view_mode
+ * @param type $langcode
+ */
+function delivery_entity_view($entity, $entity_type, $view_mode, $langcode) {
+    $countries = variable_get('delivery_pane_countries', FALSE);
+    $chosen_country = variable_get('shipping_country');
+    if (is_array($countries) && isset($countries[$chosen_country])) {
+        drupal_add_css(drupal_get_path('module', 'delivery') . '/css/delivery.css');
+
+        if ($entity_type == 'commerce_order') {
+            $content = array();
+            $data = $entity->data['delivery_pane_field_display'];
+
+            $content[] = array(
+                '#type' => 'item',
+                '#title' => t(''),
+                '#markup' => date('d F Y, l', strtotime($data)),
+            );
+
+            $markup = '<div class="delivery_view_order">' . t('Desired delivery date:') . '</div>';
+            $markup .= drupal_render($content);
+            $markup .= '</div>';
+
+            $entity->content['delivery'] = array(
+                '#weight' => 10,
+                '#markup' => $markup,
+                '#access' => commerce_order_access($entity),
+            );
+        }
+    }
+}
+
+function delivery_form_submit($form, &$form_state, $checkout_pane, $order) {
+   /* $pane_id = $checkout_pane['pane_id'];
+    $pane_values = $form_state['values'][$pane_id];
+    $order->data['delivery_pane_field_display'] = $pane_values['delivery_pane_field_display'];
+    
+    commerce_order_save($order);*/
+    drupal_set_message('Form submitted.');
+}
+
+
+ function delivery_pane_checkout_ajax_callback($form, $form_state,$order){
+     $order = $form_state['order'];
+     ob_start();
+    krumo($order);
+    $data = ob_get_clean();
+    $fp = fopen("/home/neo/www/cookies.loc/log.html", "w");
+    fwrite($fp, $data);
+    fclose($fp);
+ }

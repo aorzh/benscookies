@@ -1,0 +1,26 @@
+.delivery_view_order {
+    background-color: #E5E5E5;
+    font-size: 14px;
+    padding: 7px 10px;
+    color: red;
+}
+#edit-delivery-pane-field {
+    min-height: 700px;
+}
+#edit-delivery-pane-countries {
+    height: 500px;
+}
+.working_days {
+    height: 225px;
+}
+/*
+#commerce-checkout-form-checkout #edit-delivery {
+    display: none;
+}
+.hide_delivery {
+    display: none !important;   
+}
+.show_delivery {
+    display: block !important;
+}
+*/

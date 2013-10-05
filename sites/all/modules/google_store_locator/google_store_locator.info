@@ -1,0 +1,19 @@
+name = Google Store Locator
+description = Provides a panel and map canvas for displaying your store locations
+core = 7.x
+package = Commerce (contrib)
+php = 5.2.4
+dependencies[] = addressfield
+dependencies[] = ctools
+dependencies[] = geocoder
+dependencies[] = geofield
+dependencies[] = libraries
+dependencies[] = views
+dependencies[] = views_geojson
+
+; Information added by drupal.org packaging script on 2013-06-18
+version = "7.x-1.0"
+core = "7.x"
+project = "google_store_locator"
+datestamp = "1371593455"
+
