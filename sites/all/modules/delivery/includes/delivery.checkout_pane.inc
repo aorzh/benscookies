@@ -48,8 +48,6 @@ function delivery_addressfield_standard_widget_refresh_alter(&$commands, $form, 
  * @return boolean|string
  */
 function delivery_pane_checkout_form($form, $form_state, $checkout_pane, $order) {
-    ctools_include('ajax');
-    ctools_ajax_command_reload();
     global $user;
     $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
     $shipping = $order_wrapper->commerce_customer_shipping->commerce_customer_address->value();
@@ -203,7 +201,11 @@ function delivery_form_refresh($form, $form_state) {
         variable_set('date_now', FALSE);
     }
 
-    return $form;
+    ctools_include('ajax');
+    $commands = array();
+    $commands[] = ctools_ajax_command_reload();
+  
+    return array('#type' => 'ajax', '#commands' => $commands);
 }
 
 /**
