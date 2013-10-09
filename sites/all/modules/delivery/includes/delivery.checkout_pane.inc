@@ -94,7 +94,7 @@ function delivery_pane_checkout_form($form, $form_state, $checkout_pane, $order)
 
                 $checkout_form['delivery_pane_field_display'] = array(
                     '#type' => 'date_popup',
-                    '#default_value' => '',
+                    '#default_value' => variable_get('choosed', NULL),
                     '#size' => 21,
                     //'#maxlength' => 100,
                     '#date_flexible' => 0,
@@ -187,7 +187,7 @@ function delivery_pane_checkout_form($form, $form_state, $checkout_pane, $order)
 
             $checkout_form['delivery_pane_field_display_1'] = array(
                 '#type' => 'date_popup',
-                '#default_value' => '',
+                '#default_value' => variable_get('choosed', NULL),
                 '#size' => 21,
                 //'#maxlength' => 100,
                 '#date_flexible' => 0,
