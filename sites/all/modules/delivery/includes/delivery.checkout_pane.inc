@@ -118,7 +118,7 @@ function delivery_pane_checkout_form($form, $form_state, $checkout_pane, $order)
                 );
 
                 $hours = (int)date('Hi');
-                var_dump($hours);
+                
                 $date_now = variable_get('date_now');
                 if ($date_now == TRUE && $hours <= 1700) {
                     if ($hours <= 859 && $hours <= 1659) {
