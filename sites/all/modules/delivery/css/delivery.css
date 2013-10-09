@@ -13,14 +13,6 @@
 .working_days {
     height: 225px;
 }
-/*
-#commerce-checkout-form-checkout #edit-delivery {
+.disabled {
     display: none;
 }
-.hide_delivery {
-    display: none !important;   
-}
-.show_delivery {
-    display: block !important;
-}
-*/

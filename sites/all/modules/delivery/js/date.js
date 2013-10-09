@@ -16,7 +16,6 @@
  */
 (function($, Drupal, window, document, undefined) {
     $(document).ready(function() {
-
         // if now more than 15pm we will disable current day
         $('#datepicker-schedule').find("input").datepicker({
             minDate: 1,
@@ -35,9 +34,6 @@
                 }
             }
         });
-        if ($('#delivery-wrapper').get(0).firstChild != null){
-           // $('#datepicker-schedule').css('display', 'none');
-        }
     });
 
 })(jQuery, Drupal, this, this.document);
