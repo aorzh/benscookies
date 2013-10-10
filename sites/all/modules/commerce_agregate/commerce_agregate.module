@@ -74,11 +74,18 @@ function commerce_agregate_block_content() {
     $output .= '<div class="address"><b>Mail: </b> ' . $order->mail. '</div>';
     $output .= '<div class="country"><b>Country: </b> ' . $shipping['country']. '</div>';
     $output .= '<div class="address"><b>Adress: </b> ' . $shipping['thoroughfare']. '</div>';
+    $output .= '<div class="address"><b>Date : </b> ' . $order->data['delivery_pane_field_display'] . '</div>';
+    
+    if (isset($order->data['delivery_pane_field_time_slot'])){
+        $output .= '<div class="address"><b>Time Slot : </b> ' . $order->data['delivery_pane_field_time_slot'] . '</div><p></p>';
+    }
+    
     $i = 0;
     foreach($product as $prod){
         $i++;
         $output .= '<div class="address"><b>Product#: ' . $i. '</b> ' . $prod->title. '</div>';
     }
+    
     return $output;
 }
 /**
@@ -89,6 +96,11 @@ function commerce_agregate_block_info() {
     $blocks['commerce-agregate'] = array(
         'info' => t('Commerce Agregate block'),
         'cache' => DRUPAL_NO_CACHE,
+        'status' => 1, // If you enabled this module, you want the block
+        'region' => 'content',
+        'weight' => -10, // on top
+        'visibility' => BLOCK_VISIBILITY_LISTED, // Show on only the listed pages
+        'pages' => "commerce-agregate",
     );
     return $blocks;
 }
