@@ -1,0 +1,111 @@
+<?php
+
+module_load_include('inc', 'commerce_agregate', 'includes/commerce_agregate.block');
+
+define('COMMERCE_AGREGATE_PERMISSION', 'administer commerce_agregate');
+
+/**
+ * Implements hook_help.
+ *
+ * Displays help and module information.
+ *
+ * @param path
+ *   Which path of the site we're using to display help
+ * @param arg
+ *   Array that holds the current path as returned from arg() function
+ */
+function commerce_agregate_help($path, $arg) {
+    switch ($path) {
+        case "admin/help#commerce_agregate":
+            return '<p>' . t("Aggregate products") . '</p>';
+            break;
+    }
+}
+
+function commerce_agregate_init() {
+    //$path = drupal_get_path('module', 'commerce_agregate');
+    //$path_to_css = $path . '/css/commerce_agregate.css';
+    //$path_to_js = $path . '/js/script.js';
+    //drupal_add_js($path_to_js);
+    //drupal_add_css($path_to_css);
+}
+
+/**
+ * Implement hook_permission()
+ * @return type
+ */
+function commerce_agregate_permission() {
+    return array(
+        COMMERCE_AGREGATE_PERMISSION => array(
+            'title' => t('Administer Commerce Agregate Module'),
+            'description' => t('Perform administration tasks for Commerce Agregate Module.'),
+        ),
+    );
+}
+
+function commerce_agregate_block_content() {
+    $order_id = db_select('commerce_order', 'co')
+            ->fields('co', array('order_id', 'changed'))
+            ->condition('co.status', 'completed', '=')
+            ->orderBy('co.changed', 'DESC')
+            ->execute()
+            ->fetchField();
+
+    $order = commerce_order_load($order_id);
+    $product_ids = array();
+    foreach (entity_metadata_wrapper('commerce_order', $order)->commerce_line_items as $delta => $line_item_wrapper) {
+        if (in_array($line_item_wrapper->type->value(), commerce_product_line_item_types())) {
+            $product_ids[] = $line_item_wrapper->commerce_product->raw();
+        }
+        foreach ($product_ids as $product_id) {
+            $id[] = $product_id;
+        }
+    }
+    $order_wrapper = entity_metadata_wrapper('commerce_order', $order);
+    $shipping = $order_wrapper->commerce_customer_shipping->commerce_customer_address->value();
+    $profile_id = $order_wrapper->commerce_customer_shipping->profile_id->value();
+    $profile = commerce_customer_profile_load($profile_id);
+    $user = user_load($order->uid);
+    foreach (array_unique($id) as $value) {
+        $product[] = commerce_product_load($value);
+    }
+    
+    $output = '<div class="user-name"><b>Name: </b> ' . $shipping['name_line'] . '</div>';
+    $output .= '<div class="address"><b>Mail: </b> ' . $order->mail. '</div>';
+    $output .= '<div class="country"><b>Country: </b> ' . $shipping['country']. '</div>';
+    $output .= '<div class="address"><b>Adress: </b> ' . $shipping['thoroughfare']. '</div>';
+    $i = 0;
+    foreach($product as $prod){
+        $i++;
+        $output .= '<div class="address"><b>Product#: ' . $i. '</b> ' . $prod->title. '</div>';
+    }
+    return $output;
+}
+/**
+ * Implement hook_block_info()
+ * @return type
+ */
+function commerce_agregate_block_info() {
+    $blocks['commerce-agregate'] = array(
+        'info' => t('Commerce Agregate block'),
+        'cache' => DRUPAL_NO_CACHE,
+    );
+    return $blocks;
+}
+
+/**
+ * Implement hook_block_view()
+ * Render brlock with products grid
+ * @param type $delta
+ * @return type
+ */
+function commerce_agregate_block_view($delta = '') {
+    $block = array();
+
+    if ($delta == 'commerce-agregate') {
+        $block['subject'] = t('');
+        $block['content'] = commerce_agregate_block_content();
+    }
+
+    return $block;
+}
