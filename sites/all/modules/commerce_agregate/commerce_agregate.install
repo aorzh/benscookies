@@ -13,8 +13,8 @@ function commerce_agregate_install() {
     $node->uid = 1; // Or any id you wish
     node_object_prepare($node); // Set some default values.
     // Let's add standard body field
-    $node->body[$node->language][0]['value'] = 'This is a body text';
-    $node->body[$node->language][0]['summary'] = 'Here goes a summary';
+    $node->body[$node->language][0]['value'] = '';
+    $node->body[$node->language][0]['summary'] = '';
     $node->body[$node->language][0]['format'] = 'filtered_html'; // If field has a format, you need to define it. Here we define a default filtered_html format for a body field
 
     $node = node_submit($node); // Prepare node for a submit

@@ -1,42 +1,6 @@
 <?php
 
 /**
- * Refresh countries
- * @param type $commands
- * @param type $form
- * @param type $form_state
- */
-function delivery_addressfield_standard_widget_refresh_alter(&$commands, $form, $form_state) {
-
-    // The target element is one element below the triggering country selector.
-    $array_parents = $form_state['triggering_element']['#array_parents'];
-    array_pop($array_parents);
-
-    // Iterate over the form parents to find the element.
-    $element = $form;
-    foreach ($array_parents as $name) {
-
-        $element = &$element[$name];
-        if (!empty($element['#addressfield'])) {
-            break;
-        }
-    }
-
-    $chosen_country = $element['country']['#default_value'];
-    $countries = variable_get('delivery_pane_countries', FALSE);
-    if (is_array($countries) && isset($countries[$chosen_country])) {
-        ctools_include('ajax');
-        variable_set('shipping_country', $chosen_country);
-        //$commands[] = ctools_ajax_command_reload();
-        $commands[] = ajax_command_invoke('#edit-delivery', 'html', array(render(delivery_pane_checkout_form())));
-        $commands[] = ajax_command_css('#edit-delivery', array('display' => 'block'));
-    } else {
-        variable_set('shipping_country', $chosen_country);
-        $commands[] = ajax_command_css('#edit-delivery', array('display' => 'none'));
-    }
-}
-
-/**
  * 
  * @return type
  */
