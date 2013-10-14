@@ -1,0 +1,9 @@
+.hidden {
+    display: none;
+}
+.giftcard_view_order {
+    background-color: #E5E5E5;
+    font-size: 14px;
+    padding: 7px 10px;
+    color: red;
+}
