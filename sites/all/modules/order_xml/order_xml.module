@@ -168,53 +168,8 @@ function order_xml_get_full_orders_data($orders) {
         //add order to output
         $order = commerce_order_load($order->order_id);
         $vars['order'][$i] = $order;
-
-        //look up the line items
-        $li_ids = array();
-        foreach ($order->commerce_line_items['und'] as $key => $li) {
-            $li_id[] = $li;
-            foreach ($li_id as $value){
-                $li_ids[] = $value['line_item_id'];
-            }
-      
-        }
-        $lis = commerce_line_item_load_multiple($li_ids);
-
-        //add line items to output
-        $vars['line_items'] = $lis;
-
-        //look up the products
-        $product_ids = array();
-        foreach ($lis as $li) {
-            foreach ($li->commerce_product['und'] as $prod_ref) {
-                $product_ids[] = $prod_ref['product_id'];
-            }
-        }
-        $products = commerce_product_load_multiple($product_ids);
-        //add products to output
-        $vars['products'] = $products;
-
-        //look up customer profiles
-        $profile_ids = array();
-        $ship_profile_ids = array();
-        foreach ($order->commerce_customer_shipping['und'] as $profile_ref) {
-            $ship_profile_ids[] = $profile_ref['profile_id'];
-        }
-        foreach ($order->commerce_customer_billing['und'] as $profile_ref) {
-            $profile_ids[] = $profile_ref['profile_id'];
-        }
-        $profiles = commerce_customer_profile_load_multiple($profile_ids);
-        $profiles_shipping = commerce_customer_profile_load_multiple($ship_profile_ids);
-        //add customer profiles to output
-        $vars['profiles'] = $profiles;
-        $vars['profiles_shipping'] = $profiles_shipping;
-
-        //add user to output
-        $vars['user'] = user_load($order->uid);
-        $i++;  
-        
+        $i++;
     }
-
     return $vars;
 }
 
@@ -223,7 +178,12 @@ function order_xml_get_full_orders_data($orders) {
  * @return type
  */
 function order_xml_xml() {
+    global $user;
     switch ($_GET) {
+        case isset($_GET['username']):
+            
+            break;
+        
         case isset($_GET['order_id']):
             $order_id = (integer) $_GET['order_id'];
             $order = commerce_order_load($order_id);

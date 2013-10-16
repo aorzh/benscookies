@@ -10,59 +10,11 @@
  * - profiles: array of commerce profile objects indexed by profile_id.
  * - user: user object (who placed the order).
  */
-$i = 0;
 drupal_add_http_header('Content-Type', 'text/xml; charset=utf8');
 ?>
 <PurchaseOrders>
-    <?php  foreach ($order as $orders) { ?>
-        <?php
-        
-        $profile_id = $orders->commerce_customer_billing['und'][0]['profile_id'];
-        $profile = commerce_customer_profile_load($profile_id);
-        $profile_address = $profile->commerce_customer_address['und'][0];
-        //shipping
-        $ship_profile_id = $orders->commerce_customer_shipping['und'][0]['profile_id'];
-        $ship_profile = commerce_customer_profile_load($ship_profile_id);
-        $ship_profile_address = $ship_profile->commerce_customer_address['und'][0];
-        
-        ?>
-        <PurchaseOrder>
-            <OrderID><?php print $orders->order_id; ?></OrderID>
-            <OrderNumber><?php print $orders->order_number; ?></OrderNumber>
-            <OrderDate><?php print date("m/d/Y", $orders->revision_timestamp); ?></OrderDate>
-            <OrderTime><?php print date("h:i:s", $orders->revision_timestamp); ?></OrderTime>
-            <BillToAddress>
-                <AddressID><?php print $profile_id; ?></AddressID>
-                <Name><?php print $profile_address['name_line']; ?></Name>
-                <Line1><?php print $profile_address['thoroughfare']; ?></Line1>
-                <Line2><?php print $profile_address['premise']; ?></Line2>
-                <City><?php print $profile_address['locality']; ?></City>
-                <StateProvinceCode><?php print $profile_address['administrative_area']; ?></StateProvinceCode>
-                <PostalCode><?php print $profile_address['postal_code']; ?></PostalCode>
-                <CountryCode><?php print $profile_address['country']; ?></CountryCode>
-                <Email><?php print $orders->mail; ?></Email>
-            </BillToAddress>
-            <ShipToAddress>
-                <AddressID><?php print $ship_profile_id; ?></AddressID>
-                <Name><?php print $ship_profile_address['name_line']; ?></Name>
-                <Line1><?php print $ship_profile_address['thoroughfare']; ?></Line1>
-                <Line2><?php print $ship_profile_address['premise']; ?></Line2>
-                <City><?php print $ship_profile_address['locality']; ?></City>
-                <StateProvinceCode><?php print $ship_profile_address['administrative_area']; ?></StateProvinceCode>
-                <PostalCode><?php print $ship_profile_address['postal_code']; ?></PostalCode>
-                <CountryCode><?php print $ship_profile_address['country']; ?></CountryCode>
-                <Email><?php print $orders->mail; ?></Email>
-            </ShipToAddress>
-    <?php foreach ($orders->commerce_line_items['und'] as $key => $line_item) {  ?>
-                <OrderItemDetail>
-                    <LineNumber><?php print $key + 1; ?></LineNumber>
-                    <?php foreach ($line_items[$line_item['line_item_id']]->commerce_product['und'] as $product) { ?>
-                        <ProductSKU><?php print $products[$product['product_id']]->sku; ?></ProductSKU>
-        <?php } ?>
-                    <Quantity><?php print $line_items[$line_item['line_item_id']]->quantity; ?></Quantity>
-                </OrderItemDetail>
-        <?php } ?>
-        </PurchaseOrder>
-<?php $i++;} ?>
+    <?php foreach ($order as $orders) { ?>
+        <OrderID><?php print $orders->order_id; ?></OrderID>
+    <?php } ?>
 </PurchaseOrders>    
 <?php drupal_exit(); ?>
