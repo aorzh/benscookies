@@ -1,0 +1,251 @@
+<?php
+/**
+ * Settings for delivery module
+ * @file
+ */
+define('ORDER_XML_PERMISSION', 'administer order_xml');
+
+/**
+ * Implements hook_help.
+ *
+ * Displays help and module information.
+ *
+ * @param path
+ *   Which path of the site we're using to display help
+ * @param arg
+ *   Array that holds the current path as returned from arg() function
+ */
+function order_xml_help($path, $arg) {
+    switch ($path) {
+        case "admin/help#order_xml":
+            return '<p>' . t("Show orders as xml") . '</p>';
+            break;
+    }
+}
+
+/**
+ * Implement hook_permission()
+ * @return type
+ */
+function order_xml_permission() {
+  return array(
+    ORDER_XML_PERMISSION => array(
+      'title' => t('Administer Order XML module'),
+      'description' => t('Perform administration tasks for Order XML module.'),
+    ),
+  );
+}
+
+/**
+ * Implement hook_menu()
+ * to define path for our xml file.
+ * @return string
+ */
+function order_xml_menu() {
+    $items = array();
+    $items['export/xml'] = array(
+        'title' => 'Order xml',
+        'page callback' => 'order_xml_xml',
+        'access arguments' => array('access content'),
+        'type' => MENU_CALLBACK,
+    );
+    return $items;
+}
+
+/**
+ * exports an order xml
+ * returns: xml as strin
+ * @param type $order
+ * @return type
+ */
+function order_xml_export_order($order) { 
+  // get full order details (line items, products, customer profiles, etc.)
+  $vars = order_xml_get_full_order_data($order);
+  return theme('order_xml', $vars);
+}
+
+function order_xml_orders_export_order($orders){
+     $vars = order_xml_get_full_orders_data($orders);
+  return theme('order_xml_orders', $vars);
+}
+
+/**
+ * Implements hook_theme()
+ * @param type $existing
+ * @param type $type
+ * @param type $theme
+ * @param type $path
+ * @return type
+ */
+function order_xml_theme($existing, $type, $theme, $path) {
+    if ($type == 'module') {
+        return array(
+            'order_xml' => array(
+                'variables' => array('order' => NULL, 'line_items' => NULL, 'products' => NULL, 'profiles' => NULL, 'user' => NULL),
+                'template' => 'order_xml',
+                'path' => drupal_get_path('module', 'order_xml') . '/theme'
+            ),
+            'order_xml_orders' => array(
+                'variables' => array('order' => NULL, 'line_items' => NULL, 'products' => NULL, 'profiles' => NULL, 'user' => NULL),
+                'template' => 'order_xml_orders',
+                'path' => drupal_get_path('module', 'order_xml') . '/theme'
+            )
+        );
+    }
+    return array();
+}
+
+/**
+ * get full order details (line items, products, customer profiles, etc.)
+ * returns:
+ *   Array (
+ *     [order] => stdClass Object
+ *     [line_items] => Array indexed by line_item_id
+ *     [products] => Array indexed by product_id
+ *     [profiles] => Array indexed by profile_id
+ *     [user] => stdClass Object
+ *   )
+ * @param type $order
+ * @return type
+ */
+function order_xml_get_full_order_data($order) {
+  $vars = array();
+
+  //add order to output
+  $vars['order'] = $order;
+  //look up the line items
+  $li_ids = array();  
+  foreach ($order->commerce_line_items['und'] as $li) {
+    $li_ids[] = $li['line_item_id'];
+  }
+  $lis = commerce_line_item_load_multiple($li_ids);
+  //add line items to output
+  $vars['line_items'] = $lis;
+  
+  //look up the products
+  $product_ids = array();
+  foreach ($lis as $li) {
+    foreach ($li->commerce_product['und'] as $prod_ref) {
+      $product_ids[] = $prod_ref['product_id'];
+    }
+  }
+  $products = commerce_product_load_multiple($product_ids);
+  //add products to output
+  $vars['products'] = $products;
+
+  //look up customer profiles
+  $profile_ids = array();
+  foreach ($order->commerce_customer_billing['und'] as $profile_ref) {
+    $profile_ids[] = $profile_ref['profile_id'];
+  }
+  $profiles = commerce_customer_profile_load_multiple($profile_ids);
+  //add customer profiles to output
+  $vars['profiles'] = $profiles; 
+
+  //add user to output
+  $vars['user'] = user_load($order->uid['und']);
+
+  return $vars;
+}
+
+/**
+ * get full order details (line items, products, customer profiles, etc.)
+ * returns:
+ *   Array (
+ *     [order] => stdClass Object
+ *     [line_items] => Array indexed by line_item_id
+ *     [products] => Array indexed by product_id
+ *     [profiles] => Array indexed by profile_id
+ *     [user] => stdClass Object
+ *   )
+ * @param type $orders
+ * @return type
+ */
+function order_xml_get_full_orders_data($orders) {
+    $vars = array();
+    $i = 0;
+    foreach ($orders as $order) {
+        //add order to output
+        $order = commerce_order_load($order->order_id);
+        $vars['order'][$i] = $order;
+
+        //look up the line items
+        $li_ids = array();
+        foreach ($order->commerce_line_items['und'] as $key => $li) {
+            $li_id[] = $li;
+            foreach ($li_id as $value){
+                $li_ids[] = $value['line_item_id'];
+            }
+      
+        }
+        $lis = commerce_line_item_load_multiple($li_ids);
+
+        //add line items to output
+        $vars['line_items'] = $lis;
+
+        //look up the products
+        $product_ids = array();
+        foreach ($lis as $li) {
+            foreach ($li->commerce_product['und'] as $prod_ref) {
+                $product_ids[] = $prod_ref['product_id'];
+            }
+        }
+        $products = commerce_product_load_multiple($product_ids);
+        //add products to output
+        $vars['products'] = $products;
+
+        //look up customer profiles
+        $profile_ids = array();
+        $ship_profile_ids = array();
+        foreach ($order->commerce_customer_shipping['und'] as $profile_ref) {
+            $ship_profile_ids[] = $profile_ref['profile_id'];
+        }
+        foreach ($order->commerce_customer_billing['und'] as $profile_ref) {
+            $profile_ids[] = $profile_ref['profile_id'];
+        }
+        $profiles = commerce_customer_profile_load_multiple($profile_ids);
+        $profiles_shipping = commerce_customer_profile_load_multiple($ship_profile_ids);
+        //add customer profiles to output
+        $vars['profiles'] = $profiles;
+        $vars['profiles_shipping'] = $profiles_shipping;
+
+        //add user to output
+        $vars['user'] = user_load($order->uid);
+        $i++;  
+        
+    }
+
+    return $vars;
+}
+
+/**
+ * 
+ * @return type
+ */
+function order_xml_xml() {
+    switch ($_GET) {
+        case isset($_GET['order_id']):
+            $order_id = (integer) $_GET['order_id'];
+            $order = commerce_order_load($order_id);
+            $xml = order_xml_export_order($order);
+
+            break;
+
+        case isset($_GET['datefrom']):
+            $datefrom = strtotime($_GET['datefrom']);
+            if (isset($_GET['dateto'])) {
+                $dateto = strtotime($_GET['dateto']);
+            } else {
+                $dateto = time();
+            }
+            $orders = db_select('commerce_order', 'co')
+                    ->fields('co')
+                    ->condition('co.created', array($datefrom, $dateto), 'BETWEEN')
+                    ->execute()
+                    ->fetchAll();
+            $xml = order_xml_orders_export_order($orders);
+            break;
+    }
+
+    return $xml;
+}

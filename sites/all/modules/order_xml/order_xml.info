@@ -1,0 +1,5 @@
+name = Commerce Order Export to xml
+description = Exports orders as XML file (created by ibit)
+core = 7.x
+package = Commerce Extra
+dependencies[] = commerce_cart

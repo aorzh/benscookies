@@ -1,0 +1,545 @@
+diff --git a/commerce_feeds.module b/commerce_feeds.module
+index 3b085d4..91892ec 100644
+--- a/commerce_feeds.module
++++ b/commerce_feeds.module
+@@ -44,6 +44,19 @@ function commerce_feeds_feeds_plugins() {
+       ),
+     );
+   }
++  if (module_exists('commerce_order')) {
++    $info['FeedsCommerceOrderProcessor'] = array(
++      'name' => 'Commerce Order processor',
++      'description' => 'Create and update orders.',
++      'help' => 'Create and update orders from parsed content.',
++      'handler' => array(
++        'parent' => 'FeedsProcessor',
++        'class' => 'FeedsCommerceOrderProcessor',
++        'file' => 'FeedsCommerceOrderProcessor.inc',
++        'path' => $path,
++      ),
++    );
++  }
+ 
+   return $info;
+ }
+diff --git a/commerce_feeds_example/commerce_feeds_example.feeds_importer_default.inc b/commerce_feeds_example/commerce_feeds_example.feeds_importer_default.inc
+index 5c9351b..1e8a4d7 100644
+--- a/commerce_feeds_example/commerce_feeds_example.feeds_importer_default.inc
++++ b/commerce_feeds_example/commerce_feeds_example.feeds_importer_default.inc
+@@ -133,5 +133,107 @@ function commerce_feeds_example_feeds_importer_default() {
+   );
+   $export['product_reference_importer'] = $feeds_importer;
+ 
++  $feeds_importer = new stdClass();
++  $feeds_importer->disabled = FALSE; /* Edit this to true to make a default feeds_importer disabled initially */
++  $feeds_importer->api_version = 1;
++  $feeds_importer->id = 'order_impoter';
++  $feeds_importer->config = array(
++    'name' => 'Order Impoter',
++    'description' => 'Import oders from CSV. Need to run after the import product examples',
++    'fetcher' => array(
++      'plugin_key' => 'FeedsFileFetcher',
++      'config' => array(
++        'allowed_extensions' => 'txt csv tsv xml opml',
++        'direct' => FALSE,
++      ),
++    ),
++    'parser' => array(
++      'plugin_key' => 'FeedsCSVParser',
++      'config' => array(
++        'delimiter' => ',',
++        'no_headers' => 0,
++      ),
++    ),
++    'processor' => array(
++      'plugin_key' => 'FeedsCommerceOrderProcessor',
++      'config' => array(
++        'order_type' => 'commerce_order',
++        'author' => 0,
++        'status' => '',
++        'mappings' => array(
++          0 => array(
++            'source' => 'created',
++            'target' => 'created',
++            'unique' => FALSE,
++          ),
++          1 => array(
++            'source' => 'status',
++            'target' => 'order_status',
++            'unique' => FALSE,
++          ),
++          3 => array(
++            'source' => 'sku',
++            'target' => 'sku',
++            'unique' => FALSE,
++          ),
++          4 => array(
++            'source' => 'quantity',
++            'target' => 'quantity',
++            'unique' => FALSE,
++          ),
++          5 => array(
++            'source' => 'name',
++            'target' => 'username',
++            'unique' => FALSE,
++          ),
++          6 => array(
++            'source' => 'mail',
++            'target' => 'mail',
++            'unique' => FALSE,
++          ),
++          7 => array(
++            'source' => 'country',
++            'target' => 'commerce_customer_address:country',
++            'unique' => FALSE,
++          ),
++          8 => array(
++            'source' => 'area',
++            'target' => 'commerce_customer_address:administrative_area',
++            'unique' => FALSE,
++          ),
++          9 => array(
++            'source' => 'locality',
++            'target' => 'commerce_customer_address:locality',
++            'unique' => FALSE,
++          ),
++          10 => array(
++            'source' => 'postal_code',
++            'target' => 'commerce_customer_address:postal_code',
++            'unique' => FALSE,
++          ),
++          11 => array(
++            'source' => 'street',
++            'target' => 'commerce_customer_address:thoroughfare',
++            'unique' => FALSE,
++          ),
++          12 => array(
++            'source' => 'name',
++            'target' => 'commerce_customer_address:name_line',
++            'unique' => FALSE,
++          ),
++        ),
++        'update_existing' => '2',
++        'input_format' => 'plain_text',
++      ),
++    ),
++    'content_type' => '',
++    'update' => 0,
++    'import_period' => 1800,
++    'expire_period' => 3600,
++    'import_on_create' => TRUE,
++    'process_in_background' => FALSE,
++  );
++  $export['order_importer'] = $feeds_importer;
++
+   return $export;
+ }
+diff --git a/commerce_feeds_example/commerce_feeds_example.info b/commerce_feeds_example/commerce_feeds_example.info
+index 3d5ec35..469d6d3 100644
+--- a/commerce_feeds_example/commerce_feeds_example.info
++++ b/commerce_feeds_example/commerce_feeds_example.info
+@@ -9,6 +9,7 @@ description = "A Drupal Commerce product and product reference node importer bui
+ features[ctools][] = "feeds:feeds_importer_default:1"
+ features[feeds_importer][] = "product_importer"
+ features[feeds_importer][] = "product_reference_importer"
++features[feeds_importer][] = "order_importer"
+ name = "Commerce Feeds Example"
+ package = "Commerce (contrib)"
+ php = "5.2.4"
+diff --git a/commerce_feeds_example/commerce_feeds_example.install b/commerce_feeds_example/commerce_feeds_example.install
+index f946dce..5208672 100644
+--- a/commerce_feeds_example/commerce_feeds_example.install
++++ b/commerce_feeds_example/commerce_feeds_example.install
+@@ -11,6 +11,7 @@ function commerce_feeds_example_enable() {
+   $disabled = variable_get('default_feeds_importer');
+   $disabled['product_importer'] = FALSE;
+   $disabled['product_reference_importer'] = FALSE;
++  $disabled['order_importer'] = FALSE;
+   variable_set('default_feeds_importer', $disabled);
+ }
+ 
+@@ -21,5 +22,6 @@ function commerce_feeds_example_disable() {
+   $disabled = variable_get('default_feeds_importer');
+   $disabled['product_importer'] = TRUE;
+   $disabled['product_reference_importer'] = TRUE;
++  $disabled['order_importer'] = TRUE;
+   variable_set('default_feeds_importer', $disabled);
+ }
+\ No newline at end of file
+diff --git a/commerce_feeds_example/example_orders.csv b/commerce_feeds_example/example_orders.csv
+new file mode 100644
+index 0000000..eec12fc
+--- /dev/null
++++ b/commerce_feeds_example/example_orders.csv
+@@ -0,0 +1,11 @@
++"Created","Status","SKU","Quantity","Name","Mail","Country","Area","Locality","Postal_code","Street"
++1347534322,completed,60574100,1,bob,bob@example.com,US,CA,Los Angeles,90016,67 West Washington Boulevard
++1347534388,pending,23548568,1,tom,tom@example.com,ES,88,Calvo Sotelo,47600,Villalón de Campos
++1347534392,completed,23548568,1,julien,julien@example.com,US,CA,Los Angeles,90250,7 Still Pastures Drive
++1347534392,completed,62730975,2,julien,julien@example.com,US,CA,Los Angeles,90250,7 Still Pastures Drive
++1347534392,completed,28646827,1,julien,julien@example.com,US,CA,Los Angeles,90250,7 Still Pastures Drive
++1347534478,pending,60751606,3,rob,rob@example.com,,US,FL,Miami,33143,102 Golden Street
++1345294541,pending,60574100,1,john,john@example.com,FR,,PARIS,75002,Rue du sentier
++1345294548,completed,60751606,2,patrick,patrick@example.com,US,SF,San Francisco,94123,Beatch street
++1345294548,completed,62730975,1,patrick,patrick@example.com,US,SF,San Francisco,94123,Beatch street
++1345294722,completed,23548568,1,rob,rob@example.com,US,FL,Miami,33143,102 Golden Street
+diff --git a/plugins/FeedsCommerceOrderProcessor.inc b/plugins/FeedsCommerceOrderProcessor.inc
+new file mode 100644
+index 0000000..fd9a245
+--- /dev/null
++++ b/plugins/FeedsCommerceOrderProcessor.inc
+@@ -0,0 +1,353 @@
++<?php
++
++/**
++ * @file
++ * Class definition of FeedsCommerceOrderProcessor.
++ */
++
++/**
++ * Creates orders from feed items.
++ */
++class FeedsCommerceOrderProcessor extends FeedsProcessor {
++
++  /**
++   * Define entity type.
++   */
++  public function entityType() {
++    return 'commerce_order';
++  }
++
++  /**
++   * Implements parent::entityInfo().
++   */
++  protected function entityInfo() {
++    $info = parent::entityInfo();
++    $info['label plural'] = t('Commerce Orders');
++    return $info;
++  }
++
++  /**
++   * Creates a new order in memory and returns it.
++   */
++  protected function newEntity(FeedsSource $source) {
++    $type = $this->config['order_type'];
++    $uid = 0;
++    $status = NULL;
++    $order = commerce_order_new($uid);
++    $order->uid = $this->config['author'];
++    $order->log = 'Created by FeedsCommerceOrderProcessor';
++    return $order;
++  }
++
++  /**
++   * Loads an existing order.
++   */
++  protected function entityLoad(FeedsSource $source, $order_id) {
++    if ($this->config['update_existing'] == FEEDS_UPDATE_EXISTING) {
++      $order = commerce_order_load($order_id);
++      $order->log = 'Updated by FeedsCommerceOrderProcessor';
++      return $order;
++    }
++    return NULL;
++  }
++
++  /**
++   * Save a order.
++   */
++  public function entitySave($order) {
++    if ($order->order_status) {
++      $order->status = $order->order_status
++        ? $order->order_status
++        : NULL;
++    }
++
++    // Load a user by mail and grab the uid.
++    if (empty($order->uid) && $order->mail) {
++      $order->uid = ($account = user_load_by_mail($order->mail))
++        ? $account->uid
++        : 0;
++    }
++
++    // Load the product by SKU or Product_id.
++    if ($order->sku) {
++      $product = commerce_product_load_by_sku($order->sku);
++    }
++    elseif ($order->product_id) {
++      $product = commerce_product_load($order->product_id);
++    }
++
++    // Update the line item if the product is already attached to the order.
++    if (!$order->is_new && ($line_item_id = $this->existingLineItemProductId($order, $product))) {
++      $line_item = commerce_line_item_load($line_item_id);
++      $clone = clone $line_item;
++
++      // Updating the quantity.
++      if ($order->quantity != $line_item->quantity) {
++        $line_item->quantity = $order->quantity;
++      }
++
++      if ($clone != $line_item) {
++        commerce_line_item_save($line_item);
++      }
++    }
++    // Add a new line item if the product is not yet in the order.
++    else {
++      $line_item = commerce_product_line_item_new($product, $order->quantity, $order->order_id);
++      // Save the line item to get its ID.
++      commerce_line_item_save($line_item);
++      // Add the line item to the order using the wrapper.
++      $order_wrapper = entity_metadata_wrapper($this->entityType(), $order);
++      $order_wrapper->commerce_line_items[] = $line_item;
++
++      // If not already set, attach the customer profile to the order.
++      if (empty($order->commerce_customer_billing)) {
++        $this->addCustomerBillingProfileToOrder($order);
++      }
++      commerce_order_save($order);
++    }
++  }
++
++  /*
++   * Attach a customer profile to an order.
++   */
++  private function addCustomerBillingProfileToOrder($order) {
++    $order_wrapper = entity_metadata_wrapper($this->entityType(), $order);
++
++    // @TODO: access to that data using a better approach.
++    $customer_profile_value = reset($order->commerce_customer_address[LANGUAGE_NONE]);
++
++    // Tried to get a profil_id by comparing address informations from the order.
++    if (!empty($order->commerce_customer_address)) {
++      // Use EntityFieldQuery to compare for address field informations.
++      $query = new EntityFieldQuery();
++      $query->entityCondition('entity_type', 'commerce_customer_profile')
++        ->entityCondition('bundle', 'billing');
++
++      // Grab only the default structure values from the address informations.
++      $addressfield_values = array_intersect_key($customer_profile_value, addressfield_data_property_info());
++      // Added field condition to the query if specific address information has
++      // been filled.
++      foreach($addressfield_values as $key => $value) {
++        $query->fieldCondition('commerce_customer_address', $key, $value);
++      }
++      $result = $query->execute();
++
++      // Return the profil_id if a customer profile match with all the address
++      // field informations contained in the order.
++      if (!empty($result)) {
++        $profile = reset($result['commerce_customer_profile']);
++        $order_wrapper->commerce_customer_billing->set($profile->profile_id);
++        return;
++      }
++    }
++
++    // If no customer profile has been found, create a new one with informations
++    // contained in the address field.
++    $customer_profile = commerce_customer_profile_new('billing', $order->uid);
++
++    // Added addressfield default value to the address informations contained
++    // in the order.
++    $customer_profile_value += addressfield_default_values();
++    $profil_wrapper = entity_metadata_wrapper('commerce_customer_profile', $customer_profile);
++    $profil_wrapper->commerce_customer_address = $customer_profile_value;
++    commerce_customer_profile_save($customer_profile);
++
++    // Saved the profile_id in the order.
++    $order_wrapper->commerce_customer_billing->set($customer_profile->profile_id);
++    return;
++  }
++
++  /**
++   * Delete a series of orders.
++   */
++  protected function entityDeleteMultiple($order_ids) {
++    commerce_order_delete_multiple($order_ids);
++    // @TODO: should we also delete profiles created ?
++  }
++
++  /**
++   * Override parent::configDefaults().
++   */
++  public function configDefaults() {
++    $order_types = commerce_order_type_get_name();
++    $customer_profile_types = commerce_customer_profile_type_get_name();
++    return array(
++      'order_type' => key($order_types),
++      'customer_profile_type' => key($customer_profile_types),
++      'author' => 0,
++      'status' => '',
++    ) + parent::configDefaults();
++  }
++
++  /**
++   * Override parent::configForm().
++   */
++  public function configForm(&$form_state) {
++    $form = parent::configForm($form_state);
++    unset($form['input_format']);
++
++    $order_types = commerce_order_type_get_name();
++    array_walk($order_types, 'check_plain');
++    $form['order_type'] = array(
++      '#type' => 'select',
++      '#title' => t('Order type'),
++      '#description' => t('Select the order type for the order to be created.'),
++      '#options' => $order_types,
++      '#default_value' => $this->config['order_type'],
++    );
++
++    $customer_profile_types = commerce_customer_profile_type_get_name();
++    array_walk($customer_profile_types, 'check_plain');
++    $form['customer_profile_type'] = array(
++      '#type' => 'select',
++      '#title' => t('Customer profile type'),
++      '#description' => t('Select the customer profile type.'),
++      '#options' => $customer_profile_types,
++      '#default_value' => $this->config['customer_profile_type'],
++    );
++
++    $form['update_existing']['#options'] = array(
++      FEEDS_SKIP_EXISTING   => 'Do not update existing orders',
++      FEEDS_UPDATE_EXISTING => 'Update existing orders',
++    );
++
++    return $form;
++  }
++
++  /**
++   * Return available mapping targets.
++   */
++  public function getMappingTargets() {
++    $targets = parent::getMappingTargets();
++    $targets += array(
++      // Order infos.
++      'order_id' => array(
++        'name' => t('Order: ID'),
++        'description' => t('The order identifier.'),
++      ),
++      'created' => array(
++        'name' => t('Order: Created'),
++        'description' => t('Unix timestamp when the order was created.'),
++      ),
++      'order_status' => array(
++        'name' => t('Order: Status'),
++        'description' => t('Status of the order.'),
++      ),
++      'customer_profile_id' => array(
++        'name' => t('Order: Customer Profile Id'),
++        'description' => t('The Id of the customer profile.'),
++      ),
++      // Customer infos.
++      'uid' => array(
++        'name' => t('User: ID'),
++        'description' => t('Drupal user ID that owns the order.'),
++      ),
++      'mail' => array(
++        'name' => t('User: Mail'),
++        'description' => t('Address associated with the order.'),
++      ),
++      'username' => array(
++        'name' => t('User: Name'),
++        'description' => t('The customer\'s name.'),
++      ),
++      // Product infos.
++      'sku' => array(
++        'name' => t('Product: SKU'),
++        'description' => t('The product identifier.'),
++      ),
++      'quantity' => array(
++        'name' => t('Product: Quantity'),
++        'description' => t('The purchased quantitiy of the product.'),
++      ),
++    );
++
++
++    // Let's implement hook_feeds_processor_targets() to convert address feeds
++    // informations into an address field.
++    try {
++      self::loadMappers();
++      $entity_customer_profile_type = 'commerce_customer_profile';
++      drupal_alter('feeds_processor_targets', $targets, $entity_customer_profile_type, $this->config['customer_profile_type']);
++    } catch (Exception $e) {
++      // Do nothing.
++    }
++
++    // Let implementers of hook_feeds_processor_targets() add their targets.
++    try {
++      self::loadMappers();
++      drupal_alter('feeds_processor_targets', $targets, $this->entityType(), $this->config['order_type']);
++    } catch (Exception $e) {
++      // Do nothing.
++    }
++
++    return $targets;
++  }
++
++  /**
++   * Get the order_id of an existing order if available.
++   */
++  protected function existingEntityId(FeedsSource $source, FeedsParserResult $result) {
++    if ($order_id = parent::existingEntityId($source, $result)) {
++      return $order_id;
++    }
++
++    $item = $result->current_item;
++    if (!empty($item['order_id']) || $item['mail'] || $item['created']) {
++      $query = db_select('commerce_order')
++        ->fields('commerce_order', array('order_id'));
++
++      if (!empty($item['order_id'])) {
++        $query->condition('order_id', $item['order_id']);
++      }
++      if ($item['mail']) {
++        $query->condition('mail', trim($item['mail']));
++      }
++      if ($item['created']) {
++        $query->condition('created', trim($item['created']));
++      }
++
++      $order_id = $query->execute()->fetchfield();
++      if ($order_id) {
++        return $order_id;
++      }
++    }
++    return 0;
++  }
++
++  /**
++   * Validate the commerce_order entity.
++   */
++  protected function entityValidate($order) {
++    if (empty($order->sku) && empty($order->product_id)) {
++      throw new FeedsValidationException(t('Required product SKU or product ID is missing.'));
++    }
++    else if (!empty($order->sku) && !commerce_product_validate_sku($order->sku)) {
++      throw new FeedsValidationException(t('Product SKU ("@sku") is invalid.', array('@sku' => $order->sku)));
++    }
++    else if (!empty($order->product_id) && !commerce_product_load($order->product_id)) {
++      throw new FeedsValidationException(t('Product ID ("@product_id") is invalid.', array('@product_id' => $order->product_id)));
++    }
++
++    global $statuses;
++    if (empty($statuses)) {
++      $statuses = commerce_order_statuses();
++    }
++    if (!$statuses[$order->order_status]) {
++      throw new FeedsValidationException(t('Order status ("@status") is invalid.', array('@status' => $order->order_status)));
++    }
++  }
++
++  /**
++   * Get line_item_id if a product is available in a commerce line item of an order.
++   */
++  private function existingLineItemProductId($order, $product) {
++    foreach (entity_metadata_wrapper($this->entityType(), $order->order_id)->commerce_line_items as $delta => $line_item_wrapper) {
++      if (in_array($line_item_wrapper->type->value(), commerce_product_line_item_types())) {
++        if ($product->product_id == $line_item_wrapper->commerce_product->raw()) {
++          return $line_item_wrapper->line_item_id->value();
++        }
++      }
++    }
++    return NULL;
++  }
++}
+\ No newline at end of file
