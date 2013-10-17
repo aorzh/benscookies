@@ -1,9 +1,12 @@
 Get one order:
-site.com/export/xml?order_id=123 where 123 = order_id
+site.com/export/xml?username=SOMENAME&password=*******&order_id=123 where 123 = order_id
 
 Get orders between two dates:
 
-site.com/export/xml?datefrom=19-09-2013&dateto=20-09-2013
+    $username = 'admin';
+    $password = 'WarpsXGrove01865';
+
+site.com/export/xml?username=SOMENAME&password=*******&datefrom=19-09-2013&dateto=20-09-2013
 
 Note:
 Please, use this format for dates (dd-mm-yyyy)

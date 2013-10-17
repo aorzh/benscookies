@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Settings for delivery module
  * @file
@@ -28,12 +29,12 @@ function order_xml_help($path, $arg) {
  * @return type
  */
 function order_xml_permission() {
-  return array(
-    ORDER_XML_PERMISSION => array(
-      'title' => t('Administer Order XML module'),
-      'description' => t('Perform administration tasks for Order XML module.'),
-    ),
-  );
+    return array(
+        ORDER_XML_PERMISSION => array(
+            'title' => t('Administer Order XML module'),
+            'description' => t('Perform administration tasks for Order XML module.'),
+        ),
+    );
 }
 
 /**
@@ -58,15 +59,15 @@ function order_xml_menu() {
  * @param type $order
  * @return type
  */
-function order_xml_export_order($order) { 
-  // get full order details (line items, products, customer profiles, etc.)
-  $vars = order_xml_get_full_order_data($order);
-  return theme('order_xml', $vars);
+function order_xml_export_order($order) {
+    // get full order details (line items, products, customer profiles, etc.)
+    $vars = order_xml_get_full_order_data($order);
+    return theme('order_xml', $vars);
 }
 
-function order_xml_orders_export_order($orders){
-     $vars = order_xml_get_full_orders_data($orders);
-  return theme('order_xml_orders', $vars);
+function order_xml_orders_export_order($orders) {
+    $vars = order_xml_get_full_orders_data($orders);
+    return theme('order_xml_orders', $vars);
 }
 
 /**
@@ -109,43 +110,43 @@ function order_xml_theme($existing, $type, $theme, $path) {
  * @return type
  */
 function order_xml_get_full_order_data($order) {
-  $vars = array();
+    $vars = array();
 
-  //add order to output
-  $vars['order'] = $order;
-  //look up the line items
-  $li_ids = array();  
-  foreach ($order->commerce_line_items['und'] as $li) {
-    $li_ids[] = $li['line_item_id'];
-  }
-  $lis = commerce_line_item_load_multiple($li_ids);
-  //add line items to output
-  $vars['line_items'] = $lis;
-  
-  //look up the products
-  $product_ids = array();
-  foreach ($lis as $li) {
-    foreach ($li->commerce_product['und'] as $prod_ref) {
-      $product_ids[] = $prod_ref['product_id'];
+    //add order to output
+    $vars['order'] = $order;
+    //look up the line items
+    $li_ids = array();
+    foreach ($order->commerce_line_items['und'] as $li) {
+        $li_ids[] = $li['line_item_id'];
     }
-  }
-  $products = commerce_product_load_multiple($product_ids);
-  //add products to output
-  $vars['products'] = $products;
+    $lis = commerce_line_item_load_multiple($li_ids);
+    //add line items to output
+    $vars['line_items'] = $lis;
 
-  //look up customer profiles
-  $profile_ids = array();
-  foreach ($order->commerce_customer_billing['und'] as $profile_ref) {
-    $profile_ids[] = $profile_ref['profile_id'];
-  }
-  $profiles = commerce_customer_profile_load_multiple($profile_ids);
-  //add customer profiles to output
-  $vars['profiles'] = $profiles; 
+    //look up the products
+    $product_ids = array();
+    foreach ($lis as $li) {
+        foreach ($li->commerce_product['und'] as $prod_ref) {
+            $product_ids[] = $prod_ref['product_id'];
+        }
+    }
+    $products = commerce_product_load_multiple($product_ids);
+    //add products to output
+    $vars['products'] = $products;
 
-  //add user to output
-  $vars['user'] = user_load($order->uid['und']);
+    //look up customer profiles
+    $profile_ids = array();
+    foreach ($order->commerce_customer_billing['und'] as $profile_ref) {
+        $profile_ids[] = $profile_ref['profile_id'];
+    }
+    $profiles = commerce_customer_profile_load_multiple($profile_ids);
+    //add customer profiles to output
+    $vars['profiles'] = $profiles;
 
-  return $vars;
+    //add user to output
+    $vars['user'] = user_load($order->uid['und']);
+
+    return $vars;
 }
 
 /**
@@ -178,33 +179,42 @@ function order_xml_get_full_orders_data($orders) {
  * @return type
  */
 function order_xml_xml() {
+
     global $user;
-    switch ($_GET) {
-        case isset($_GET['username']):
-            
-            break;
-        
-        case isset($_GET['order_id']):
-            $order_id = (integer) $_GET['order_id'];
-            $order = commerce_order_load($order_id);
-            $xml = order_xml_export_order($order);
+    //krumo($user);
 
-            break;
+    /* if (!in_array('administrator', $user->roles)) {
+      drupal_exit('403!');
+      } else { } */
+    $username = 'admin';
+    $password = 'WarpsXGrove01865';
 
-        case isset($_GET['datefrom']):
-            $datefrom = strtotime($_GET['datefrom']);
-            if (isset($_GET['dateto'])) {
-                $dateto = strtotime($_GET['dateto']);
-            } else {
-                $dateto = time();
-            }
-            $orders = db_select('commerce_order', 'co')
-                    ->fields('co')
-                    ->condition('co.created', array($datefrom, $dateto), 'BETWEEN')
-                    ->execute()
-                    ->fetchAll();
-            $xml = order_xml_orders_export_order($orders);
-            break;
+    if ($_GET['username'] != $username && $_GET['password'] != $password) {
+        drupal_exit();
+    } else {
+        switch ($_GET) {
+            case isset($_GET['order_id']):
+                $order_id = (integer) $_GET['order_id'];
+                $order = commerce_order_load($order_id);
+                $xml = order_xml_export_order($order);
+
+                break;
+
+            case isset($_GET['datefrom']):
+                $datefrom = strtotime($_GET['datefrom']);
+                if (isset($_GET['dateto'])) {
+                    $dateto = strtotime($_GET['dateto']);
+                } else {
+                    $dateto = time();
+                }
+                $orders = db_select('commerce_order', 'co')
+                        ->fields('co')
+                        ->condition('co.created', array($datefrom, $dateto), 'BETWEEN')
+                        ->execute()
+                        ->fetchAll();
+                $xml = order_xml_orders_export_order($orders);
+                break;
+        }
     }
 
     return $xml;
