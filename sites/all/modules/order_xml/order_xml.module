@@ -114,7 +114,7 @@ function order_xml_get_full_order_data($order) {
 
     //add order to output
     $vars['order'] = $order;
-    //krumo($order);
+
     //look up the line items
     $li_ids = array();
     foreach ($order->commerce_line_items['und'] as $li) {
@@ -171,7 +171,6 @@ function order_xml_get_full_orders_data($orders) {
 function order_xml_xml() {
 
     global $user;
-    //krumo($user);
 
     /* if (!in_array('administrator', $user->roles)) {
       drupal_exit('403!');
@@ -179,8 +178,11 @@ function order_xml_xml() {
     $username = 'admin';
     $password = 'WarpsXGrove01865';
 
-    if ($_GET['username'] != $username && $_GET['password'] != $password) {
-        drupal_exit();
+    if (isset($_GET['username']) && isset($_GET['password'])) {
+
+        if ($_GET['username'] != $username && $_GET['password'] != $password) {
+            drupal_exit();
+        }
     } else {
         switch ($_GET) {
             case isset($_GET['order_id']):

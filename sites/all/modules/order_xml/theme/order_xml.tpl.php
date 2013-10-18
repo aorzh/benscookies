@@ -20,50 +20,50 @@ $shipping = $wrapper->commerce_customer_shipping->commerce_customer_address->val
 $billing = $wrapper->commerce_customer_billing->commerce_customer_address->value();
 drupal_add_http_header('Content-Type', 'text/xml; charset=utf8');
 ?>
-<Orders>
-    <Order>
-        <OrderTotal>
-            <Amount><?php print commerce_currency_amount_to_decimal($total, $currency_code); ?></Amount>
-            <CurrencyCode><?php print $currency_code ?></CurrencyCode>
-        </OrderTotal>
-        <ShipServiceLevel>Std Cont US Street Addr</ShipServiceLevel>
-        <MarketplaceId>ATVPDKIKX0DER</MarketplaceId>
-        <SalesChannel>DRUPAL</SalesChannel>
-        <ShippingAddress>
-            <Phone></Phone>
-            <PostalCode><?php print $shipping['postal_code']; ?></PostalCode>
-            <Name><?php print $shipping['name_line']; ?></Name>
-            <CountryCode><?php print $shipping['country']; ?></CountryCode>
-            <StateOrRegion></StateOrRegion>
-            <AddressLine1><?php print $shipping['thoroughfare']; ?></AddressLine1>
-            <City><?php print $shipping['locality']; ?></City>
-        </ShippingAddress>
-        <BillingAddress>
-            <Phone></Phone>
-            <PostalCode><?php print $billing['postal_code']; ?></PostalCode>
-            <Name><?php print $billing['name_line']; ?></Name>
-            <CountryCode><?php print $billing['country']; ?></CountryCode>
-            <StateOrRegion></StateOrRegion>
-            <AddressLine1><?php print $billing['thoroughfare']; ?></AddressLine1>
-            <City><?php print $billing['locality']; ?></City>
-        </BillingAddress>
-        <BuyerEmail><?php print $order->mail; ?></BuyerEmail>
-        <OrderStatus><?php print $order->status; ?></OrderStatus>
-        <BuyerName>Masoud</BuyerName>
-        <LastUpdateDate><?php print date('c', $order->changed); ?></LastUpdateDate>
-        <PurchaseDate><?php print date('c', $order->created); ?></PurchaseDate>
-        <OrderId><?php print $order->order_id; ?></OrderId>
-        <PaymentMethod></PaymentMethod>
-    </Order>
+<Order>
+    <OrderTotal>
+        <Amount><?php print commerce_currency_amount_to_decimal($total, $currency_code); ?></Amount>
+        <CurrencyCode><?php print $currency_code ?></CurrencyCode>
+    </OrderTotal>
+    <ShipServiceLevel>Std Cont US Street Addr</ShipServiceLevel>
+    <MarketplaceId>ATVPDKIKX0DER</MarketplaceId>
+    <SalesChannel>DRUPAL</SalesChannel>
+    <ShippingAddress>
+        <Phone></Phone>
+        <PostalCode><?php print $shipping['postal_code']; ?></PostalCode>
+        <Name><?php print $shipping['name_line']; ?></Name>
+        <CountryCode><?php print $shipping['country']; ?></CountryCode>
+        <StateOrRegion></StateOrRegion>
+        <AddressLine1><?php print $shipping['thoroughfare']; ?></AddressLine1>
+        <City><?php print $shipping['locality']; ?></City>
+    </ShippingAddress>
+    <BillingAddress>
+        <Phone></Phone>
+        <PostalCode><?php print $billing['postal_code']; ?></PostalCode>
+        <Name><?php print $billing['name_line']; ?></Name>
+        <CountryCode><?php print $billing['country']; ?></CountryCode>
+        <StateOrRegion></StateOrRegion>
+        <AddressLine1><?php print $billing['thoroughfare']; ?></AddressLine1>
+        <City><?php print $billing['locality']; ?></City>
+    </BillingAddress>
+    <BuyerEmail><?php print $order->mail; ?></BuyerEmail>
+    <OrderStatus><?php print $order->status; ?></OrderStatus>
+    <BuyerName>Masoud</BuyerName>
+    <LastUpdateDate><?php print date('c', $order->changed); ?></LastUpdateDate>
+    <PurchaseDate><?php print date('c', $order->created); ?></PurchaseDate>
+    <OrderId><?php print $order->order_id; ?></OrderId>
+    <PaymentMethod></PaymentMethod>
+
     <OrderItems>
-        <?php foreach ($order->commerce_line_items['und'] as $key => $line_item) { 
+        <?php
+        foreach ($order->commerce_line_items['und'] as $key => $line_item) {
             $item = commerce_line_item_load($line_item['line_item_id']);
             ?>
             <OrderItem>
-                <OrderItemId><?php print $item->line_item_id;?></OrderItemId>
-                <QuantityOrdered><?php print round($item->quantity);?></QuantityOrdered>
-                <SellerSKU><?php print $item->line_item_label;?></SellerSKU>
-                <?php $node = node_load($item->data['context']['entity']['entity_id'] );?>
+                <OrderItemId><?php print $item->line_item_id; ?></OrderItemId>
+                <QuantityOrdered><?php print round($item->quantity); ?></QuantityOrdered>
+                <SellerSKU><?php print $item->line_item_label; ?></SellerSKU>
+    <?php $node = node_load($item->data['context']['entity']['entity_id']); ?>
                 <Title><?php print $node->title; ?></Title>
                 <ShippingTax>
                     <Amount></Amount>
@@ -87,7 +87,7 @@ drupal_add_http_header('Content-Type', 'text/xml; charset=utf8');
                     <CurrencyCode><?php print $currency_code ?></CurrencyCode>
                 </ShippingDiscount>
             </OrderItem>
-        <?php } ?>
+<?php } ?>
     </OrderItems>
-</Orders>
+</Order>
 <?php drupal_exit(); ?>
