@@ -18,13 +18,12 @@ $currency_code = $wrapper->commerce_order_total->currency_code->value();
 
 $shipping = $wrapper->commerce_customer_shipping->commerce_customer_address->value();
 $billing = $wrapper->commerce_customer_billing->commerce_customer_address->value();
-
 drupal_add_http_header('Content-Type', 'text/xml; charset=utf8');
 ?>
 <Orders>
     <Order>
         <OrderTotal>
-            <Amount><?php print commerce_currency_format($total, $currency_code); ?></Amount>
+            <Amount><?php print commerce_currency_amount_to_decimal($total, $currency_code); ?></Amount>
             <CurrencyCode><?php print $currency_code ?></CurrencyCode>
         </OrderTotal>
         <ShipServiceLevel>Std Cont US Street Addr</ShipServiceLevel>
@@ -32,21 +31,21 @@ drupal_add_http_header('Content-Type', 'text/xml; charset=utf8');
         <SalesChannel>DRUPAL</SalesChannel>
         <ShippingAddress>
             <Phone></Phone>
-            <PostalCode><?php print $shipping->postal_code; ?></PostalCode>
-            <Name><?php print $shipping->name_line; ?></Name>
-            <CountryCode><?php print $shipping->country; ?></CountryCode>
+            <PostalCode><?php print $shipping['postal_code']; ?></PostalCode>
+            <Name><?php print $shipping['name_line']; ?></Name>
+            <CountryCode><?php print $shipping['country']; ?></CountryCode>
             <StateOrRegion></StateOrRegion>
-            <AddressLine1><?php print $shipping->thoroughfare; ?></AddressLine1>
-            <City><?php print $shipping->locality; ?></City>
+            <AddressLine1><?php print $shipping['thoroughfare']; ?></AddressLine1>
+            <City><?php print $shipping['locality']; ?></City>
         </ShippingAddress>
         <BillingAddress>
             <Phone></Phone>
-            <PostalCode><?php print $billing->postal_code; ?></PostalCode>
-            <Name><?php print $billing->name_line; ?></Name>
-            <CountryCode><?php print $billing->country; ?></CountryCode>
+            <PostalCode><?php print $billing['postal_code']; ?></PostalCode>
+            <Name><?php print $billing['name_line']; ?></Name>
+            <CountryCode><?php print $billing['country']; ?></CountryCode>
             <StateOrRegion></StateOrRegion>
-            <AddressLine1><?php print $billing->thoroughfare; ?></AddressLine1>
-            <City><?php print $billing->locality; ?></City>
+            <AddressLine1><?php print $billing['thoroughfare']; ?></AddressLine1>
+            <City><?php print $billing['locality']; ?></City>
         </BillingAddress>
         <BuyerEmail><?php print $order->mail; ?></BuyerEmail>
         <OrderStatus><?php print $order->status; ?></OrderStatus>

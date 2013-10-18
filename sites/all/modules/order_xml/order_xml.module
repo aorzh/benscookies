@@ -114,6 +114,7 @@ function order_xml_get_full_order_data($order) {
 
     //add order to output
     $vars['order'] = $order;
+    //krumo($order);
     //look up the line items
     $li_ids = array();
     foreach ($order->commerce_line_items['und'] as $li) {
@@ -122,17 +123,6 @@ function order_xml_get_full_order_data($order) {
     $lis = commerce_line_item_load_multiple($li_ids);
     //add line items to output
     $vars['line_items'] = $lis;
-
-    //look up the products
-    $product_ids = array();
-    foreach ($lis as $li) {
-        foreach ($li->commerce_product['und'] as $prod_ref) {
-            $product_ids[] = $prod_ref['product_id'];
-        }
-    }
-    $products = commerce_product_load_multiple($product_ids);
-    //add products to output
-    $vars['products'] = $products;
 
     //look up customer profiles
     $profile_ids = array();
