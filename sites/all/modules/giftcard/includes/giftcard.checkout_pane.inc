@@ -46,9 +46,13 @@ function giftcard_pane_checkout_form($form, $form_state, $checkout_pane, $order)
         '#type' => 'radios',
         '#title' => t('Print your Message on a Greeting Card for 2?'),
         '#options' => $print_opt,
+        '#required' => TRUE,
         '#ajax' => array(
             'callback' => 'giftcard_form_refresh',
             'wrapper' => 'test-form-wrapper',
+        ),
+        '#attributes' => array(
+          'class' => array('yes-no'),  
         ),
     );
     $card_opt = array(
@@ -59,10 +63,10 @@ function giftcard_pane_checkout_form($form, $form_state, $checkout_pane, $order)
         "Ben's Logo" => "Ben's Logo",
     );
     $checkout_form['giftcard_cards'] = array(
-        '#type' => 'select',
+        '#type' => 'radios',
         '#options' => $card_opt,
         '#attributes' => array(
-          'class' => array('hidden'),  
+          'class' => array('cards'),  
         ),
     );
 

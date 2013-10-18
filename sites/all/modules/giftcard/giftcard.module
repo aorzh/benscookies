@@ -42,6 +42,8 @@ function gitfcard_permission() {
 function giftcard_init() {
     $path = drupal_get_path('module', 'giftcard');
     $path_to_css = $path . '/css/giftcard.css';
+    $path_to_js = $path . '/js/script.js';
+    drupal_add_js($path_to_js);
     drupal_add_css($path_to_css);
 }
 
@@ -50,7 +52,7 @@ function giftcard_commerce_checkout_page_info() {
 
     $checkout_pages['giftcard'] = array(
         'name' => t('Giftcard'),
-        'title' => t('Want some special?'),
+        'title' => t('Sending this to some special?'),
         'weight' => 4,
     );
 
@@ -161,4 +163,3 @@ function giftcard_pane_checkout_form_submit($form, &$form_state, $checkout_pane,
  function giftcard_pane_checkout_ajax_callback($form, $form_state,$order){
      $order = $form_state['order'];
  }
- 

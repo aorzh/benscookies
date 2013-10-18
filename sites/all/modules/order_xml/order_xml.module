@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Settings for delivery module
+ * Settings for Order xml module
  * @file
  */
 define('ORDER_XML_PERMISSION', 'administer order_xml');

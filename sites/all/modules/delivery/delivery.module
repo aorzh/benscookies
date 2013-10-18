@@ -48,7 +48,7 @@ function delivery_commerce_checkout_page_info() {
     $checkout_pages['delivery_date'] = array(
         'name' => t('Delivery Date'),
         'title' => t('Delivery date'),
-        'weight' => 5,
+        'weight' => 3,
     );
 
     return $checkout_pages;
