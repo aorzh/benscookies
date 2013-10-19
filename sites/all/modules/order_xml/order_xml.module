@@ -44,7 +44,7 @@ function order_xml_permission() {
  */
 function order_xml_menu() {
     $items = array();
-    $items['export/xml'] = array(
+    $items['export/xml/%'] = array(
         'title' => 'Order xml',
         'page callback' => 'order_xml_xml',
         'access arguments' => array('access content'),
@@ -169,24 +169,18 @@ function order_xml_get_full_orders_data($orders) {
  * @return type
  */
 function order_xml_xml() {
-
     global $user;
-
     /* if (!in_array('administrator', $user->roles)) {
       drupal_exit('403!');
       } else { } */
-    $username = 'admin';
-    $password = 'WarpsXGrove01865';
+    $username = trim('admin');
+    $password = trim('WarpsXGrove01865');
 
-    if (isset($_GET['username']) && isset($_GET['password'])) {
-
-        if ($_GET['username'] != $username && $_GET['password'] != $password) {
-            drupal_exit();
-        }
-    } else {
+    if (isset($_GET['username']) && isset($_GET['password']) && $_GET['username'] == $username && $_GET['password'] == $password) {
         switch ($_GET) {
             case isset($_GET['order_id']):
-                $order_id = (integer) $_GET['order_id'];
+                $order_id = (integer)$_GET['order_id'];
+                //
                 $order = commerce_order_load($order_id);
                 $xml = order_xml_export_order($order);
 
@@ -202,12 +196,12 @@ function order_xml_xml() {
                 $orders = db_select('commerce_order', 'co')
                         ->fields('co')
                         ->condition('co.created', array($datefrom, $dateto), 'BETWEEN')
+                        ->condition('co.status', 'processing', '=')
                         ->execute()
                         ->fetchAll();
                 $xml = order_xml_orders_export_order($orders);
                 break;
         }
     }
-
     return $xml;
 }
