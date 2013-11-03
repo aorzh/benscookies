@@ -22,7 +22,45 @@ function omega_kickstart_preprocess_html(&$variables) {
   $theme_path = drupal_get_path('theme', 'omega_kickstart');
   drupal_add_css($theme_path . '/css/ie-lte-8.css', array('group' => CSS_THEME, 'weight' => 20, 'browsers' => array('IE' => 'lte IE 8', '!IE' => FALSE), 'preprocess' => FALSE));
   drupal_add_css($theme_path . '/css/ie-lte-7.css', array('group' => CSS_THEME, 'weight' => 21, 'browsers' => array('IE' => 'lte IE 7', '!IE' => FALSE), 'preprocess' => FALSE));
+  
+  
+  
+  /*  User redirect if order price more than 100 gbp */
+  
+  global $user;
+  $userRoles = $user;
+  $uri = request_uri();
+  
+  if (strpos($uri, '/checkout') !== FALSE){
+	$uid = $user->uid;  
+    $order_id = commerce_cart_order_id($uid);
+    $order = commerce_order_load($order_id);
+    $wrapper = entity_metadata_wrapper('commerce_order', $order);
+	$total = $wrapper->commerce_order_total->amount->value();
+	$currency_code = $wrapper->commerce_order_total->currency_code->value();
+	
+	$decimal =  commerce_currency_amount_to_decimal($total, $currency_code);
+    print_r($decimal);
+    
+    if($decimal >= 100){
+		drupal_goto('webform/large-order-size');
+	}
+ 
+    
+  }
+  //print'<pre>';
+  //print_r($userRoles);
+  //print $userRoles->roles['3'];
+  //print'<pre>';
+
 }
+
+
+
+
+
+
+
 
 /**
  * Implements hook_css_alter().
@@ -63,5 +101,9 @@ function omega_kickstart_preprocess_node(&$variables) {
   }
 }
 
+///////////////////////////
 
+
+
+ 
 

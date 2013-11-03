@@ -22,10 +22,7 @@ $billing = $wrapper->commerce_customer_billing->commerce_customer_address->value
 $email_b = $wrapper->commerce_customer_billing->field_email->value();
 $email_s = $wrapper->commerce_customer_shipping->field_email->value();
 
-
-//krumo($order, $tax);
 drupal_add_http_header('Content-Type', 'text/xml; charset=utf8');
-
 ?>
 <Order>
     <OrderTotal>
@@ -59,57 +56,105 @@ drupal_add_http_header('Content-Type', 'text/xml; charset=utf8');
     <LastUpdateDate><?php print date('c', $order->changed); ?></LastUpdateDate>
     <PurchaseDate><?php print date('c', $order->created); ?></PurchaseDate>
     <OrderId><?php print $order->order_id; ?></OrderId>
-    <PaymentMethod></PaymentMethod>
+
+    <?php
+    foreach ($order->commerce_line_items['und'] as $key => $line_item) {
+        $item = commerce_line_item_load($line_item['line_item_id']);
+        if ($item->type == 'shipping') {
+            $line_item_wrapper = entity_metadata_wrapper('commerce_line_item', $item);
+            $total = $line_item_wrapper->commerce_total->amount->value();
+            $currency_code = $line_item_wrapper->commerce_total->currency_code->value();
+            ?>
+
+            <ShippingPrice>
+                <Amount><?php print $total; ?></Amount>
+                <CurrencyCode><?php print $currency_code; ?></CurrencyCode>
+            </ShippingPrice>
+        <?php }
+    } ?>
 
     <OrderItems>
         <?php
         foreach ($order->commerce_line_items['und'] as $key => $line_item) {
             $item = commerce_line_item_load($line_item['line_item_id']);
-             /*foreach ($wrapper->commerce_line_items as $delta => $line_item_wrapper) {
-                    // Conditionally add any non-inclusive tax included in the line item.
-                   if (module_exists('commerce_tax')) {
-                        $data = $line_item_wrapper->commerce_unit_price->data->value();
-                        $amount = commerce_tax_total_amount($data['components'], FALSE, $currency_code) * $line_item_wrapper->quantity->value();
-                        $itemz->taxAmount = commerce_currency_amount_to_decimal($amount, $currency_code);
-                    }
-                }*/
             if ($item->type != 'shipping') {
+                $wrap = entity_metadata_wrapper('commerce_line_item', $item);
+                $cook = json_decode($wrap->field_cookie_selector_1->value());
+                $lineitemname = db_select('commerce_product', 'cp')
+                        ->fields('cp', array('title'))
+                        ->condition('cp.sku', $item->line_item_label, '=')
+                        ->execute()
+                        ->fetchField();
                 $item_wrapper = entity_metadata_wrapper('commerce_line_item', $item);
                 $unit = $item_wrapper->commerce_unit_price->amount->value();
                 ?>
-            <OrderItem>
-                <OrderItemId><?php print $item->line_item_id; ?></OrderItemId>
-                <QuantityOrdered><?php print round($item->quantity); ?></QuantityOrdered>
-                <SellerSKU><?php print $item->line_item_label;?></SellerSKU>
+                <OrderItem>
+                    <OrderItemId><?php print $item->line_item_id; ?></OrderItemId>
+                    <QuantityOrdered><?php print round($item->quantity); ?></QuantityOrdered>
+                    <SellerSKU><?php print $item->line_item_label; ?></SellerSKU>
                     <?php
                     if (isset($item->data['context'])) {
                         $node = node_load($item->data['context']['entity']['entity_id']);
                     }
                     ?>
-                    <Title><?php if (isset($node->title)){print $node->title;} ?></Title>
-                <ShippingTax>
-                    <Amount></Amount>
-                    <CurrencyCode><?php print $currency_code ?></CurrencyCode>
-                </ShippingTax>
-                <ShippingPrice>
-                    <Amount></Amount>
-                    <CurrencyCode><?php print $currency_code ?></CurrencyCode>
-                </ShippingPrice>
-                <ItemTax>
-                    <Amount></Amount>
-                    <CurrencyCode><?php print $currency_code ?></CurrencyCode>
-                </ItemTax>
-                <ItemPrice>
-                    <Amount><?php print commerce_currency_amount_to_decimal($unit, $currency_code); ?></Amount>
-                    <CurrencyCode><?php print $currency_code ?></CurrencyCode>
-                </ItemPrice>
-                <QuantityShipped><?php print round($item->quantity); ?></QuantityShipped>
-                <ShippingDiscount>
-                    <Amount></Amount>
-                    <CurrencyCode><?php print $currency_code ?></CurrencyCode>
-                </ShippingDiscount>
-            </OrderItem>
-            <?php }}?>
+                    <Title><?php
+                        if (isset($node->title)) {
+                            print $node->title;
+                        }
+                        ?></Title>
+                    <Cookies>                
+                        <?php
+                        if ($cook != NULL) {
+
+                            foreach ($cook as $key => $value) {
+                                if ($value->count != 0) {
+                                    $coockie_names = db_select('node', 'n')
+                                            ->fields('n', array('title'))
+                                            ->condition('nid', $value->vid, '=')
+                                            ->execute()
+                                            ->fetchField();
+                                    $coockie_sku = db_select('field_data_field_sku ', 'fs')
+                                            ->fields('fs', array('field_sku_value'))
+                                            ->condition('entity_id', $value->vid, '=')
+                                            ->execute()
+                                            ->fetchField();
+                                    $coockie_name = str_replace("&", "&amp;", $coockie_names);
+                                    ?>
+                                    <Cookie>
+                                        <SellerSKU><?php print $coockie_sku; ?></SellerSKU>			
+                                        <Title><?php print $coockie_name; ?></Title>
+                                        <QuantityOrdered><?php print $value->count; ?></QuantityOrdered>	
+                                    </Cookie>											
+                                <?php
+                                }
+                            }
+                        }
+                        ?>                                         
+                    </Cookies>                
+                    <ShippingTax>
+                        <Amount></Amount>
+                        <CurrencyCode><?php print $currency_code ?></CurrencyCode>
+                    </ShippingTax>
+                    <ShippingPrice>
+                        <Amount></Amount>
+                        <CurrencyCode><?php print $currency_code ?></CurrencyCode>
+                    </ShippingPrice>
+                    <ItemTax>
+                        <Amount></Amount>
+                        <CurrencyCode><?php print $currency_code ?></CurrencyCode>
+                    </ItemTax>
+                    <ItemPrice>
+                        <Amount><?php print commerce_currency_amount_to_decimal($unit, $currency_code); ?></Amount>
+                        <CurrencyCode><?php print $currency_code ?></CurrencyCode>
+                    </ItemPrice>
+                    <QuantityShipped><?php print round($item->quantity); ?></QuantityShipped>
+                    <ShippingDiscount>
+                        <Amount></Amount>
+                        <CurrencyCode><?php print $currency_code ?></CurrencyCode>
+                    </ShippingDiscount>
+                </OrderItem>
+    <?php }
+} ?>
     </OrderItems>
 </Order>
 <?php drupal_exit(); ?>

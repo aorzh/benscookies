@@ -557,7 +557,7 @@ function text_field_widget_form(&$form, &$form_state, $field, $instance, $langco
       );
         $main_widget['#theme']='text_cookie_theme'; 
         echo '<pre>'; 
-        //print_r($field);
+         //print_r($form_state);
         echo '</pre>';
     
         
@@ -582,7 +582,7 @@ function text_field_widget_form(&$form, &$form_state, $field, $instance, $langco
     
   return $element;
 }
-/*
+
 function text_theme($existing, $type, $theme, $path) { 
   return array(
     'text_cookie_theme' => array(
@@ -601,7 +601,7 @@ function text_theme($existing, $type, $theme, $path) {
       ),
     ),
     );
-}*/
+}
 
 function theme_text_cookie_temp($var)
 {   

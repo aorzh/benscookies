@@ -4,7 +4,7 @@
  * Settings for Order xml module
  * @file
  */
-define('ORDER_XML_PERMISSION', 'administer order_xml');
+//define('ORDER_XML_PERMISSION', 'administer order_xml');
 
 /**
  * Implements hook_help.
@@ -28,6 +28,7 @@ function order_xml_help($path, $arg) {
  * Implement hook_permission()
  * @return type
  */
+/*
 function order_xml_permission() {
     return array(
         ORDER_XML_PERMISSION => array(
@@ -35,7 +36,7 @@ function order_xml_permission() {
             'description' => t('Perform administration tasks for Order XML module.'),
         ),
     );
-}
+}*/
 
 /**
  * Implement hook_menu()
@@ -44,11 +45,11 @@ function order_xml_permission() {
  */
 function order_xml_menu() {
     $items = array();
-    $items['export/xml/%'] = array(
+    $items['export/xml'] = array(
         'title' => 'Order xml',
         'page callback' => 'order_xml_xml',
-        'access arguments' => array('access content'),
-        'type' => MENU_CALLBACK,
+        'access callback' => TRUE, 
+        'expanded' => TRUE,
     );
     return $items;
 }

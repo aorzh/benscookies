@@ -92,9 +92,9 @@ label[for="edit-giftcard-giftcard-cards-bens-logo"] {
     float: left;
     width: 100px;
     padding-left: 20px;
+    margin-bottom: 1em !important;
 }
-.form-item-giftcard-giftcard-cards:first-child {
-}
+
 .div-label {
     color: #000000;
     font-family: sans-serif;

@@ -145,6 +145,7 @@ function delivery_pane_checkout_form_submit($form, &$form_state, $checkout_pane,
     }
 
     commerce_order_save($order);
+    variable_del('choosed'); // we edl variable after commerce order save because we need to show current date in date popup
 }
 
 /**

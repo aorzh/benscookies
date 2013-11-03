@@ -1,0 +1,8 @@
+<?php
+/**
+ * Implement hook_uninstall()
+ * 
+ */
+function order_xml_uninstall() {
+    drupal_uninstall_schema('order_xml');
+}

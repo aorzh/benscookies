@@ -44,9 +44,13 @@ function giftcard_pane_checkout_form($form, $form_state, $checkout_pane, $order)
 
     $checkout_form['giftcard_print'] = array(
         '#type' => 'radios',
-        '#title' => t('Print your Message on a Greeting Card for 2?'),
-        '#options' => $print_opt,
+        '#title' => t('Print your Message on a Greeting Card for &pound;2?'),
+        '#options' => array(
+            1 => 'Yes',
+            2 => 'No',
+        ),
         '#required' => TRUE,
+        '#default_value' => 1,
         '#ajax' => array(
             'callback' => 'giftcard_form_refresh',
             'wrapper' => 'test-form-wrapper',
@@ -65,6 +69,7 @@ function giftcard_pane_checkout_form($form, $form_state, $checkout_pane, $order)
     $checkout_form['giftcard_cards'] = array(
         '#type' => 'radios',
         '#options' => $card_opt,
+        '#default_value' => 'Birthday',
         '#attributes' => array(
           'class' => array('cards'),  
         ),
@@ -109,13 +114,15 @@ function giftcard_form_refresh($form, $form_state) {
 function giftcard_pane_review($form, $form_state, $checkout_pane, $order) {
     $content = array();
 
-    $data_text = $order->data['giftcard_pane_field_display'];
-    $data_card = $order->data['giftcard_cards'];
-    $content[] = array(
-        '#type' => 'item',
-        '#title' => t('Gift Card text: '),
-        '#markup' => $data_text,
-    );
+    if(isset($order->data['giftcard_pane_field_display']) && isset($order->data['giftcard_cards'])){
+        $data_text = $order->data['giftcard_pane_field_display'];
+        $data_card = $order->data['giftcard_cards'];
+        $content[] = array(
+            '#type' => 'item',
+            '#title' => t('Gift Card text: '),
+            '#markup' => $data_text,
+        );
+    }
     if (isset($data_card) && $data_card != NULL) {
         $content[] = array(
             '#type' => 'item',
@@ -134,6 +141,14 @@ function giftcard_pane_review($form, $form_state, $checkout_pane, $order) {
  * @return boolean
  */
 function giftcard_pane_checkout_form_validate($form, $form_state) {
-    //do something for validation
-    return TRUE;
+    krumo($form_state['values']);
+    $card_text = $form_state['values']['giftcard']['giftcard_pane_field_display'];
+    $yes_no = $form_state['values']['giftcard']['giftcard_print'];
+    if(empty($card_text) && $yes_no === '1'){
+        drupal_set_message(t('Please, include a gift message'), 'error');
+        return FALSE;
+    } else {
+        return TRUE;
+    }
+
 }

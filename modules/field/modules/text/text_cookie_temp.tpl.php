@@ -13,6 +13,7 @@
     .small-title-cookie {
         font-size:12px;
     }
+
     
 </style>
 <pre>
@@ -64,12 +65,22 @@
     
 </div>
 
-
+<?php 
+ $nid = arg(1);
+ $node = node_load($nid);
+ $node_wrapper = entity_metadata_wrapper('node', $node);
+ $id = $node_wrapper->field_product->value();
+ $product = commerce_product_load($id[0]->product_id);
+ $product_wrapper = entity_metadata_wrapper('commerce_product', $product);
+ $display = $product_wrapper->field_number_of_cookies->value();
+ ?>
 <script type="text/javascript">
     jQuery(document).ready(function ($) {
-    
-    var cookieMax = 8; 
-    
+
+    $('.commerce-add-to-cart').find('#edit-submit').addClass('disabled-bnt');
+    $('.disabled-bnt').attr('style', 'background-color: darkgray; cursor: default; pointer-events: none;');
+
+    var cookieMax = <?php echo $display; ?>; 
     
     function GetAllCookies()
     {
@@ -110,6 +121,10 @@
             UpdateNumLeft();
             UpdateInput();
         }
+        if ((GetAllCookies()-cookieMax) == 0) {
+            $('.commerce-add-to-cart').find('#edit-submit').removeClass('disabled-bnt');
+            $('.commerce-add-to-cart').find('#edit-submit').removeAttr('style');
+        }
     });
     
     //removing a cookie
@@ -132,6 +147,7 @@
         $("#cookie-selector-block").hide();
     });
     
+
     });
     
 </script>

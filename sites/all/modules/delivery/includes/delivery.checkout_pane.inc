@@ -32,6 +32,7 @@ function delivery_pane_checkout_form($form, $form_state, $checkout_pane, $order)
     $shortcode = $shipping['postal_code'];
     $order_id = commerce_cart_order_id($uid = $user->uid);
 
+
     $london_codes = array(
         'E1', 'W1', 'SE1', 'SW1', 'WC1', 'WC2', 'EC1', 'EC2', 'EC3', 'EC4', 'N1',
         'NW1', 'W2', 'SW3', 'SW7', 'NW8', 'W8', 'W9', 'W11', 'SE11', 'SE17', 'SW5', 'SW8',
@@ -77,6 +78,7 @@ function delivery_pane_checkout_form($form, $form_state, $checkout_pane, $order)
                         'wrapper' => 'test-form-wrapper',
                     ),
                 );
+
                 $checkout_form['delivery_pane_field_display']['#attached']['js'] = array(
                     drupal_get_path('module', 'delivery') . '/js/london_date.js',
                 );
