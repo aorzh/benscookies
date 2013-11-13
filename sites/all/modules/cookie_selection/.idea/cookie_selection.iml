@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHP">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../exclude_node_title" />
+          <root url="file://$MODULE_DIR$/../commerce_agregate" />
+          <root url="file://$MODULE_DIR$/../../../../includes" />
+          <root url="file://$MODULE_DIR$/../webform" />
+          <root url="file://$MODULE_DIR$/../views_geojson" />
+          <root url="file://$MODULE_DIR$/../commerce_feeds" />
+          <root url="file://$MODULE_DIR$/../services" />
+          <root url="file://$MODULE_DIR$/../admin_menu" />
+          <root url="file://$MODULE_DIR$/../xml_field" />
+          <root url="file://$MODULE_DIR$/../geocoder" />
+          <root url="file://$MODULE_DIR$/../addthis" />
+          <root url="file://$MODULE_DIR$/../feeds" />
+          <root url="file://$MODULE_DIR$/../geophp" />
+          <root url="file://$MODULE_DIR$/../order_xml" />
+          <root url="file://$MODULE_DIR$/../delivery" />
+          <root url="file://$MODULE_DIR$/../geofield" />
+          <root url="file://$MODULE_DIR$/../dc_co_pages" />
+          <root url="file://$MODULE_DIR$/../email" />
+          <root url="file://$MODULE_DIR$/../views_responsive_grid" />
+          <root url="file://$MODULE_DIR$/../devel" />
+          <root url="file://$MODULE_DIR$/../../../../modules" />
+          <root url="file://$MODULE_DIR$/../backup_migrate" />
+          <root url="file://$MODULE_DIR$/../cookie_select" />
+          <root url="file://$MODULE_DIR$/../commerce_services" />
+          <root url="file://$MODULE_DIR$/../google_store_locator" />
+          <root url="file://$MODULE_DIR$/../mailchimp" />
+          <root url="file://$MODULE_DIR$/../commerce_giftwrap" />
+          <root url="file://$MODULE_DIR$/../services_views" />
+          <root url="file://$MODULE_DIR$/../job_scheduler" />
+          <root url="file://$MODULE_DIR$/../views_data_export" />
+          <root url="file://$MODULE_DIR$/../commerce_order_ftp_export" />
+          <root url="file://$MODULE_DIR$/../giftcard" />
+          <root url="file://$MODULE_DIR$/../services_entity" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../exclude_node_title" />
+          <root url="file://$MODULE_DIR$/../commerce_agregate" />
+          <root url="file://$MODULE_DIR$/../../../../includes" />
+          <root url="file://$MODULE_DIR$/../webform" />
+          <root url="file://$MODULE_DIR$/../views_geojson" />
+          <root url="file://$MODULE_DIR$/../commerce_feeds" />
+          <root url="file://$MODULE_DIR$/../services" />
+          <root url="file://$MODULE_DIR$/../admin_menu" />
+          <root url="file://$MODULE_DIR$/../xml_field" />
+          <root url="file://$MODULE_DIR$/../geocoder" />
+          <root url="file://$MODULE_DIR$/../addthis" />
+          <root url="file://$MODULE_DIR$/../feeds" />
+          <root url="file://$MODULE_DIR$/../geophp" />
+          <root url="file://$MODULE_DIR$/../order_xml" />
+          <root url="file://$MODULE_DIR$/../delivery" />
+          <root url="file://$MODULE_DIR$/../geofield" />
+          <root url="file://$MODULE_DIR$/../dc_co_pages" />
+          <root url="file://$MODULE_DIR$/../email" />
+          <root url="file://$MODULE_DIR$/../views_responsive_grid" />
+          <root url="file://$MODULE_DIR$/../devel" />
+          <root url="file://$MODULE_DIR$/../../../../modules" />
+          <root url="file://$MODULE_DIR$/../backup_migrate" />
+          <root url="file://$MODULE_DIR$/../cookie_select" />
+          <root url="file://$MODULE_DIR$/../commerce_services" />
+          <root url="file://$MODULE_DIR$/../google_store_locator" />
+          <root url="file://$MODULE_DIR$/../mailchimp" />
+          <root url="file://$MODULE_DIR$/../commerce_giftwrap" />
+          <root url="file://$MODULE_DIR$/../services_views" />
+          <root url="file://$MODULE_DIR$/../job_scheduler" />
+          <root url="file://$MODULE_DIR$/../views_data_export" />
+          <root url="file://$MODULE_DIR$/../commerce_order_ftp_export" />
+          <root url="file://$MODULE_DIR$/../giftcard" />
+          <root url="file://$MODULE_DIR$/../services_entity" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>
+
