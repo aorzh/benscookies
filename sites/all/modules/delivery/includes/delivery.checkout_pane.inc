@@ -114,7 +114,7 @@ function delivery_pane_checkout_form($form, $form_state, $checkout_pane, $order)
 
                     $checkout_form['delivery_date'] = array(
                         '#type' => 'select',
-                        '#title' => t('Time slots'),
+                        '#title' => t('Time'),
                         '#options' => $options,
                         '#disabled' => FALSE,
                     );
@@ -126,7 +126,7 @@ function delivery_pane_checkout_form($form, $form_state, $checkout_pane, $order)
                   
                 $checkout_form['delivery_date'] = array(
                         '#type' => 'select',
-                        '#title' => t('Time slots'),
+                        '#title' => t('Time'),
                         '#options' => $options,
                         '#disabled' => FALSE,
                         '#attributes' => array(
@@ -138,7 +138,7 @@ function delivery_pane_checkout_form($form, $form_state, $checkout_pane, $order)
                 } elseif ($choosed_date !== $current_date ) {
                     $checkout_form['delivery_date'] = array(
                         '#type' => 'select',
-                        '#title' => t('Time slots'),
+                        '#title' => t('Time'),
                         '#options' => $options,
                         '#disabled' => FALSE,
                     );
@@ -153,11 +153,11 @@ function delivery_pane_checkout_form($form, $form_state, $checkout_pane, $order)
 
             $checkout_form['delivery_pane_field_display_1'] = array(
                 '#type' => 'date_popup',
-                '#default_value' => variable_get('choosed', NULL),
+                //'#default_value' => variable_get('choosed', NULL),
                 '#size' => 21,
                 //'#maxlength' => 100,
                 '#date_flexible' => 0,
-                //'#date_timezone' => date_default_timezone(),
+                '#date_timezone' => date_default_timezone(),
                 '#date_year_range' => (date('Y')) . ':+0',
                 '#date_format' => 'd M y',
                 '#required' => TRUE,
@@ -173,9 +173,11 @@ function delivery_pane_checkout_form($form, $form_state, $checkout_pane, $order)
             $checkout_form['delivery_pane_field_display_1']['#attached']['js'] = array(
                 drupal_get_path('module', 'delivery') . '/js/date.js',
             );
+
             return $checkout_form;
         }
     }
+
     delivery_ajax_disable_select();
     return false;
 }

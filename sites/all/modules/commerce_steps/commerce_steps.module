@@ -1,0 +1,132 @@
+<?php
+// $Id$
+/**
+ * @file
+ * Drupal API implementation
+ */
+
+define('COMMERCE_STEPS_PERMISSION', 'administer steps names');
+
+/**
+ * Implements hook_help.
+ *
+ * Displays help and module information.
+ *
+ * @param path
+ *   Which path of the site we're using to display help
+ * @param arg
+ *   Array that holds the current path as returned from arg() function
+ */
+function commerce_steps_help($path, $arg) {
+    switch ($path) {
+        case "admin/help#steps_names":
+            return '<p>' . t("Logic for Commerce Steps module") . '</p>';
+            break;
+    }
+}
+
+/**
+ * Implement hook_permission()
+ * @return type
+ */
+function commerce_steps_permission() {
+    return array(
+        COMMERCE_STEPS_PERMISSION => array(
+            'title' => t('Administer Commerce Steps module'),
+            'description' => t('Perform administration tasks for Commerce Steps module.'),
+        ),
+    );
+}
+
+/**
+ * Implement hook_menu()
+ * @return array
+ */
+function commerce_steps_menu() {
+    $items = array();
+    $items['admin/commerce/config/checkout/commerce_steps'] = array(
+        'title' => 'Steps names',
+        'type' => MENU_LOCAL_TASK,
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('commerce_steps_form'),
+        'access arguments' => array('administer site configuration'),
+        'access callback' => TRUE,
+    );
+    return $items;
+}
+
+/**
+ * Implement hook_form()
+ * @param $form
+ * @param $form_state
+ * @return mixed
+ */
+function commerce_steps_form($form, &$form_state) {
+    $pages = commerce_checkout_pages();
+    foreach ($pages as $key => $page) {
+
+        $form[$page['page_id']] = array(
+            '#title' =>  check_plain($page['page_id']),
+            '#default_value' => $page['title'],
+            '#type' => 'textfield',
+        );
+    }
+    $form['save'] = array(
+        '#type' => 'submit',
+        '#value' => t('Save new names'),
+        '#limit_validation_errors' => array(),
+        '#submit' => array('commerce_steps_form_submit'),
+    );
+    return $form;
+}
+
+/**
+ * Implement hook_form_validate()
+ * @param $form
+ * @param $form_state
+ * @return mixed
+ */
+function commerce_steps_form_validate($form, &$form_state) {
+    foreach ($form_state['values'] as $value) {
+        if ($value == NULL) {
+            drupal_set_message(t('Field can not be empty'), 'error');
+        }
+    }
+    return $form;
+}
+
+/**
+ * Implement hook_submit()
+ * @param $form
+ * @param $form_state
+ * @return mixed
+ */
+function commerce_steps_form_submit($form, &$form_state) {
+    variable_del('state');
+    foreach ($form_state['input'] as $key => $value) {
+        $form[$key]['#default_value'] = $value;
+    }
+    variable_set('state', $form_state);
+    drupal_set_message(t('Saved'), 'status');
+    return $form_state;
+}
+
+/**
+ * Implement hook_commerce_checkout_page_info_alter()
+ * @param $checkout_pages
+ */
+function commerce_steps_commerce_checkout_page_info_alter(&$checkout_pages) {
+
+    $state = variable_get('state');
+    $pages = commerce_checkout_pages();
+    foreach ($pages as $key => $value) {
+        $check[] = $key;
+    }
+    if (isset($state['input'])) {
+        foreach ($state['input'] as $keys => $values) {
+            if (in_array($keys, $check)) {
+                $checkout_pages[$keys]['title'] = $values;
+            }
+        }
+    }
+}

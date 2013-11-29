@@ -16,3 +16,9 @@
 .disabled {
     display: none;
 }
+#edit-delivery {
+    width: 460px;
+    height: 260px;
+    background-color: #eee3da;
+    margin: 0 auto;
+}

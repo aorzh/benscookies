@@ -50,7 +50,7 @@ function giftcard_pane_checkout_form($form, $form_state, $checkout_pane, $order)
             2 => 'No',
         ),
         '#required' => TRUE,
-        '#default_value' => 1,
+        '#default_value' => 2,
         '#ajax' => array(
             'callback' => 'giftcard_form_refresh',
             'wrapper' => 'test-form-wrapper',
@@ -71,7 +71,7 @@ function giftcard_pane_checkout_form($form, $form_state, $checkout_pane, $order)
         '#options' => $card_opt,
         '#default_value' => 'Birthday',
         '#attributes' => array(
-          'class' => array('cards'),  
+          'class' => array('cards hidden'),
         ),
     );
 
@@ -87,17 +87,13 @@ function giftcard_pane_checkout_form($form, $form_state, $checkout_pane, $order)
 function giftcard_form_refresh($form, $form_state) {
     ctools_include('ajax');
     $commands = array();
-    /*ob_start();
-    krumo($form_state); 
-    $data = ob_get_clean();
-    $fp = fopen("/home/neo/www/cookies.loc/log.html", "w");
-    fwrite($fp, $data);
-    fclose($fp);*/
     
     if($form_state['values']['giftcard']['giftcard_print'] == '1'){
         $commands[] = ajax_command_invoke('#edit-giftcard-giftcard-cards', 'removeClass', array('hidden'));
+        $commands[] = ajax_command_invoke('.form-item-giftcard-giftcard-pane-field-display', 'removeClass', array('hidden'));
     } else {
         $commands[] = ajax_command_invoke('#edit-giftcard-giftcard-cards', 'addClass', array('hidden'));
+        $commands[] = ajax_command_invoke('.form-item-giftcard-giftcard-pane-field-display', 'addClass', array('hidden'));
     }
     return array('#type' => 'ajax', '#commands' => $commands);
 }
@@ -141,7 +137,6 @@ function giftcard_pane_review($form, $form_state, $checkout_pane, $order) {
  * @return boolean
  */
 function giftcard_pane_checkout_form_validate($form, $form_state) {
-    krumo($form_state['values']);
     $card_text = $form_state['values']['giftcard']['giftcard_pane_field_display'];
     $yes_no = $form_state['values']['giftcard']['giftcard_print'];
     if(empty($card_text) && $yes_no === '1'){

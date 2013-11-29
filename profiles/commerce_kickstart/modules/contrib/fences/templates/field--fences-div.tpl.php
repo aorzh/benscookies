@@ -5,7 +5,7 @@
  *
  * @see http://developers.whatwg.org/grouping-content.html#the-div-element
  */
-?> 
+?>
 <?php if ($element['#label_display'] == 'inline'): ?>
   <span class="field-label"<?php print $title_attributes; ?>>
     <?php print $label; ?>:
@@ -17,7 +17,7 @@
 <?php endif; ?>
 
 <?php foreach ($items as $delta => $item): ?>
-  <div class="<?php print $classes; ?>"<?php print $attributes; ?>> 
+  <div class="<?php print $classes; ?>"<?php print $attributes; ?>>
     <?php print render($item); ?>
   </div>
 <?php endforeach; ?>

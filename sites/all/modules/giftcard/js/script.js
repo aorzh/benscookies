@@ -1,6 +1,7 @@
 //edit-giftcard-giftcard-cards //form-item-giftcard-giftcard-print
 (function($, Drupal, window, document, undefined) {
     $(document).ready(function() {
+        $('.form-item-giftcard-giftcard-pane-field-display').addClass('hidden');
         $('#edit-giftcard-giftcard-cards').find('label').each(function() {
             $(this).append('<div class="div-label ' + $(this).attr("for") + '">' + $(this).text() + '</div>');
         });

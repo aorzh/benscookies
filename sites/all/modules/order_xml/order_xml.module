@@ -169,11 +169,9 @@ function order_xml_get_full_orders_data($orders) {
  * 
  * @return type
  */
-function order_xml_xml() {
+function order_xml_xml()
+{
     global $user;
-    /* if (!in_array('administrator', $user->roles)) {
-      drupal_exit('403!');
-      } else { } */
     $username = trim('admin');
     $password = trim('WarpsXGrove01865');
 
@@ -191,18 +189,22 @@ function order_xml_xml() {
                 $datefrom = strtotime($_GET['datefrom']);
                 if (isset($_GET['dateto'])) {
                     $dateto = strtotime($_GET['dateto']);
+                    $dateplus = strtotime('+1 day', $dateto);
                 } else {
                     $dateto = time();
                 }
+
                 $orders = db_select('commerce_order', 'co')
-                        ->fields('co')
-                        ->condition('co.created', array($datefrom, $dateto), 'BETWEEN')
-                        ->condition('co.status', 'processing', '=')
-                        ->execute()
-                        ->fetchAll();
+                    ->fields('co')
+                    ->condition('co.changed', array($datefrom, $dateplus), 'BETWEEN')
+                    ->condition('co.status', 'processing', '=')
+                    ->execute()
+                    ->fetchAll();
+
                 $xml = order_xml_orders_export_order($orders);
                 break;
         }
     }
+
     return $xml;
 }

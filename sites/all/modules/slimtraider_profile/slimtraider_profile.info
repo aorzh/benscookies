@@ -1,0 +1,6 @@
+name = Slimtraider Profile
+description = Create New Profile Types
+dependencies[] = profile2
+configure = profile/test
+package = Slimtrader
+core = 7.x

@@ -1,0 +1,134 @@
+<?php
+
+class ComputingTestCase extends DrupalWebTestCase {
+
+  public static function getInfo() {
+    return array(
+      'name' => t('Hybrid computing basic test'),
+      'description' => t('Test functions of the Drupal Hybrid Computing module.'),
+      'group' => t('Computing'),
+    );
+  }
+
+  public function setUp() {
+    //drupal_load('module', 'async_command');
+    parent::setUp('computing');
+  }
+
+  public function testCreateUpdateCommand() {
+    // note: number3=1.5 will work.
+    $id1 = computing_create_record('common', 'PingMe', 'Test PingMe', array(
+      'string1' => 'Hello',
+      'id2' => 100,
+      'number3' => 1.5
+    ));
+    $id2 = computing_create_record('common', 'PingMe', 'Test PingMe', array(
+      'string1' => 'Hello',
+      'id2' => 100,
+      'number3' => 1.5
+    ));
+    // duplicate command should not be created twice.
+    $this->assertEqual($id1, $id2, 'Duplicate command should not be created twice');
+
+    // note: number3=1.6 will not be treated as duplicate. could be float precision problem in SQL.
+    $id3 = computing_create_record('default', 'PingMe', 'Test PingMe', array(
+      'string1' => 'Hello',
+      'id2' => 100,
+      'number3' => 1.6
+    ));
+    $id4 = computing_create_record('default', 'PingMe', 'Test PingMe', array(
+      'string1' => 'Hello',
+      'id2' => 100,
+      'number3' => 1.6
+    ));
+    $this->assertNotEqual($id3, $id4, 'Seemingly duplicate command would be created twice.');
+
+    $record = computing_load_record($id1);
+    $this->assertEqual($record->description, 'Test PingMe');
+    $this->assertEqual($record->number3, 1.5);
+    $this->assertEqual($record->id2, 100);
+    $this->assertTrue($record->created > 0);
+
+    computing_update_record($id1, array('id2' => 200, 'input' => serialize('')));
+    computing_update_record($id1, array('output' => serialize(array(1,2,3))));
+    $record = computing_load_record($id1);
+    $this->assertEqual($record->id2, 200);
+    $this->assertEqual(unserialize($record->input), '');
+    $this->assertEqual(unserialize($record->output), array(1,2,3));
+
+    $record = computing_load_record($id1, 'string1');
+    $this->assertEqual($record->string1, 'Hello');
+
+    $record = computing_load_record($id1, array('string1', 'number3'));
+    $this->assertEqual($record->string1, 'Hello');
+    $this->assertEqual($record->number3, 1.5);
+
+    computing_save_input_json($id1, array('hello', 'world'));
+    $record = computing_load_record($id1, 'inputjson');
+    $this->assertEqual($record->inputjson, drupal_json_encode(array('hello', 'world')));
+
+    computing_update_record_field($id1, 'outputjson', drupal_json_encode(array('a' => 1, 'b' => 2)));
+    $this->assertEqual(computing_load_output_json($id1), array('a' => 1, 'b' => 2));
+  }
+
+}
+
+
+class ComputingUnitTestCase extends DrupalUnitTestCase {
+
+  public static function getInfo() {
+    return array(
+      'name' => t('Hybrid computing basic unit test'),
+      'description' => t('Unit test functions of the Drupal Hybrid Computing module.'),
+      'group' => t('Computing'),
+    );
+  }
+
+  public function setUp() {
+    drupal_load('module', 'computing');
+    parent::setUp();
+  }
+
+//  public function testCreateUpdateCommand() {
+//    // note: number3=1.5 will work.
+//    $id1 = computing_create_record('common', 'PingMe', 'Test PingMe', array(
+//      'string1' => 'Hello',
+//      'id2' => 100,
+//      'number3' => 1.5
+//    ));
+//    $id2 = computing_create_record('common', 'PingMe', 'Test PingMe', array(
+//      'string1' => 'Hello',
+//      'id2' => 100,
+//      'number3' => 1.5
+//    ));
+//    // duplicate command should not be created twice.
+//    $this->assertEqual($id1, $id2);
+//
+//    // note: number3=1.6 will not be treated as duplicate. could be float precision problem in SQL.
+//    $id3 = computing_create_record('default', 'PingMe', 'Test PingMe', array(
+//      'string1' => 'Hello',
+//      'id2' => 100,
+//      'number3' => 1.6
+//    ));
+//    $id4 = computing_create_record('default', 'PingMe', 'Test PingMe', array(
+//      'string1' => 'Hello',
+//      'id2' => 100,
+//      'number3' => 1.6
+//    ));
+//    $this->assertNotEqual($id3, $id4);
+//
+//    $record = computing_load_record($id1);
+//    $this->assertEqual($record->description, 'Test PingMe');
+//    $this->assertEqual($record->number3, 1.5);
+//    $this->assertEqual($record->id2, 100);
+//    $this->assertTrue($record->created > 0);
+//
+//    computing_update_record($id1, array('id2' => 200, 'input' => serialize('')));
+//    computing_update_record($id1, array('output' => serialize(array(1,2,3))));
+//    $record = computing_load_record($id1);
+//    $this->assertEqual($record->id2, 200);
+//    $this->assertEqual(unserialize($record->input), '');
+//    $this->assertEqual(unserialize($record->output), array(1,2,3));
+//  }
+
+}

@@ -1,0 +1,19 @@
+<?php
+
+function kalbasa_module_example_menu() {
+  $items = array();
+
+  $items['examples/dbtng'] = array(
+    'title' => 'DBTNG Example',
+    'page callback' => 'dbtng_example_list',
+    'access callback' => TRUE,
+  );
+ 
+  return $items;
+}
+function dbtng_example_list() {
+  $output = 'KALBASA!!!!!';
+  
+  
+  return $output;
+}

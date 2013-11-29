@@ -1,0 +1,30 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: neo
+ * Date: 18.11.13
+ * Time: 14:16
+ */
+
+/**
+ * implement hook-init
+ */
+function custom_init() {
+    $path = drupal_get_path('module', 'custom');
+    $path_to_js = $path . '/js/script.js';
+    drupal_add_js($path_to_js);
+}
+
+/**
+ * Implements hook_commerce_checkout_pane_info_alter().
+ */
+function custom_commerce_checkout_pane_info_alter(&$panes) {
+    if (!empty($panes['cart_contents'])) {
+        // Change the title of the "Cart Contents" pane.
+        $panes['cart_contents']['title'] = t('');
+    }
+    if (!empty($panes['customer_profile_billing'])) {
+        $panes['customer_profile_billing']['title'] = t('');
+    }
+}
+

@@ -1,0 +1,178 @@
+<?php
+/**
+ * Implement hook_install()
+ */
+function cookie_selection_install() {
+    /*СОЗДАНИЕ ТИПА НОДЫ*/
+    //Создание переменной $_node_types
+    node_types_rebuild();
+    //Получение массива существующих типов нод
+    $types = node_type_get_types();
+    //Добавление поля тела в тип ноды
+    node_add_body_field($types['cookie_selection']);
+    //Загрузка определения экземпляра для тела типа ноды
+    $body_instance = field_info_instance('node', 'body', 'cookie_selection');
+    //Настройка поля тела
+    $body_instance['type'] = 'text_summary_or_trimmed';
+    //Сохранение изменений в экземпляре поля тела
+    field_update_instance($body_instance);
+    /*END СОЗДАНИЕ ТИПА НОДЫ*/
+
+    /*СОЗДАНИЕ ПОЛЕЙ НОДЫ*/
+    //Создание полей, созданных данным типом контента
+    foreach (_cookie_selection_installed_fields() as $field) {
+        field_create_field($field);
+    }
+
+    //Создание все экземпляров полей
+    foreach (_cookie_selection_installed_instances() as $instance) {
+        $instance['entity_type'] = 'node';
+        $instance['bundle'] = 'cookie_selection';
+        field_create_instance($instance);
+    }
+    /*END СОЗДАНИЕ ПОЛЕЙ НОДЫ*/
+}
+
+/**
+ * Define the fields for our content type.
+ *
+ * This big array is factored into this function for readability.
+ *
+ * @return array
+ *  An associative array specifying the fields we wish to add to our
+ *  new node type.
+ */
+function _cookie_selection_installed_fields() {
+    return array(
+        'cookie_selection_sku' => array(
+            'field_name'  => 'cookie_selection_sku',
+            'cardinality' => 1,
+            'type'        => 'text',
+        ),
+        'cookie_selection_image' => array(
+            'field_name' => 'cookie_selection_image',
+            'type'       => 'image',
+            'cardinality' => 1,
+        ),
+    );
+}
+
+/**
+ * Define the field instances for our content type.
+ *
+ * The instance lets Drupal know which widget to use to allow the user to enter
+ * data and how to react in different view modes.  We are going to display a
+ * page that uses a custom "node_example_list" view mode.  We will set a
+ * cardinality of three allowing our content type to give the user three color
+ * fields.
+ *
+ * This big array is factored into this function for readability.
+ *
+ * @return array
+ *  An associative array specifying the instances we wish to add to our new
+ *  node type.
+ */
+function _cookie_selection_installed_instances() {
+    return array(
+        'cookie_selection_sku' => array(
+            'field_name'  => 'cookie_selection_sku',
+            'label' => t('SKU'),
+            'type'        => 'text',
+            'widget'      => array(
+                'type'    => 'text_textfield',
+            ),
+            'display' => array(
+                'cookie_selection_list' => array(
+                    'label' => 'hidden',
+                    'type' => 'hidden',
+                ),
+            ),
+        ),
+        'cookie_selection_image' => array(
+            'field_name'  => 'cookie_selection_image',
+            'label'       => t('Upload an image:'),
+            'required'    => FALSE,
+            'widget' => array(
+                'type'    => 'image_image',
+                'weight'  => 2.10,
+            ),
+            'display' => array(
+                'cookie_selection_list' => array(
+                    'label' => 'hidden',
+                    'type' => 'image_link_content__thumbnail',
+                ),
+            ),
+        ),
+    );
+}
+
+/**
+ * Implement hook_enable()
+ */
+function cookie_selection_enable() {
+    // Check if our field is not already created.
+    if (!field_info_field('field_cookie_selector')) {
+
+        // Create the field base.
+        $field = array(
+            'field_name' => 'field_cookie_selector',
+            'type' => 'text',
+        );
+        field_create_field($field);
+
+        // Create the field instance on the bundle.
+        $instance = array(
+            'field_name' => 'field_cookie_selector',
+            'entity_type' => 'commerce_line_item',
+            'label' => 'Cookie Selection',
+            'bundle' => 'product',
+            'widget' => array(
+                'type' => 'text_cookies',
+            ),
+            'display' => array(
+                'teaser' => array(                           // Teaser display mode
+                    'label' => 'inline',                       // Position of the label, ie. 'inline', 'above' or 'hidden'
+                    'type' => 'text_plain',                    // Formatter for how field will be displayed
+                ),
+                'default' => array(
+                    'label' => 'inline',
+                    'type' => 'text_default',
+                ),
+            ),
+        );
+        field_create_instance($instance);
+    }
+}
+
+//Удаление модуля
+function cookie_selection_uninstall() {
+
+    //Полчение массива id нод job_post
+    $sql = 'SELECT nid FROM {node} n WHERE n.type = :type';
+    $result = db_query($sql, array(':type' => 'cookie_selection'));
+    $nids = array();
+    foreach ($result as $row) {
+        $nids[] = $row->nid;
+    }
+
+    //удаление нод по их id
+    node_delete_multiple($nids);
+
+    //Удаление экземпляров полей, определенных в модуле
+    foreach (array_keys(_cookie_selection_installed_fields()) as $field) {
+        field_delete_field($field);
+    }
+
+    //Удаление экземпляров полей, присоединенных к типу (таких как поле тела)
+    $instances = field_info_instances('node', 'cookie_selection');
+    foreach ($instances as $instance_name => $instance) {
+        field_delete_instance($instance);
+    }
+
+    //Удаление типа контента (ноды)
+    node_type_delete('cookie_selection');
+
+    //Удаление информации о полях
+    field_purge_batch(1000);
+    //drupal_uninstall_schema('cookie_selection');
+}

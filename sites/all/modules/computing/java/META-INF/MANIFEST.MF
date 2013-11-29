@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Class-Path: junit-4.10.jar bsh-2.0b4.jar commons-cli-1.2.jar commons-c odec-1.5.jar commons-collections-3.2.1.jar commons-dbcp-1.4.jar commo ns-dbutils-1.3.jar commons-lang3-3.0.1.jar commons-pool-1.5.6.jar mys ql-connector-java-5.1.10.jar commons-exec-1.1.jar gson-2.2.2.jar
+Main-Class: org.drupal.project.computing.common.CommonApplication

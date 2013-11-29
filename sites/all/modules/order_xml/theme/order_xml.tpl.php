@@ -21,6 +21,8 @@ $shipping = $wrapper->commerce_customer_shipping->commerce_customer_address->val
 $billing = $wrapper->commerce_customer_billing->commerce_customer_address->value();
 $email_b = $wrapper->commerce_customer_billing->field_email->value();
 $email_s = $wrapper->commerce_customer_shipping->field_email->value();
+//krumo($order);
+//die();
 
 drupal_add_http_header('Content-Type', 'text/xml; charset=utf8');
 ?>
@@ -56,6 +58,43 @@ drupal_add_http_header('Content-Type', 'text/xml; charset=utf8');
     <LastUpdateDate><?php print date('c', $order->changed); ?></LastUpdateDate>
     <PurchaseDate><?php print date('c', $order->created); ?></PurchaseDate>
     <OrderId><?php print $order->order_id; ?></OrderId>
+    <DeliveryInstruction>
+        <Date>
+            <?php print $order->data['delivery_pane_field_display']?>
+        </Date>
+        <TimeSlot>
+            <?php
+                if(isset($order->data['delivery_pane_field_time_slot'])){
+                    print $order->data['delivery_pane_field_time_slot'];
+                }
+            ?>
+        </TimeSlot>
+    </DeliveryInstruction>
+    <Carrier>
+        Best way: <?php
+        if (trim(strtoupper($shipping['locality'])) == 'LONDON') {
+            print 'London Delivery';
+        } else {
+            print 'UK Mainland Delivery';
+        }
+        ?>
+    </Carrier>
+    <GiftInfo>
+        <GiftCard>
+            <?php
+                if(isset($order->data['giftcard_cards'])){
+                    print $order->data['giftcard_cards'];
+                }
+            ?>
+        </GiftCard>
+        <GiftText>
+            <?php
+                if(isset($order->data['giftcard_pane_field_display'])){
+                    print $order->data['giftcard_pane_field_display'];
+                }
+            ?>
+        </GiftText>
+    </GiftInfo>
 
     <?php
     foreach ($order->commerce_line_items['und'] as $key => $line_item) {

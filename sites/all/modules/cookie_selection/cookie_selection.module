@@ -1,0 +1,154 @@
+<?php
+
+/**
+ * Implement hook_init()
+ */
+function cookie_selection_init() {
+    $path = drupal_get_path('module', 'cookie_selection');
+    $path_to_css = $path . '/css/cookie_select.css';
+    drupal_add_css($path_to_css);
+}
+
+/**
+* @file
+* We need to create custom entity type (or content type - I need to think), create custom fields (maybe)
+ * Also need to implement hooks to line items
+*/
+
+function cookie_selection_node_info() {
+  // We define the node type as an associative array.
+  return array(
+	'cookie_selection' => array(
+	  'name' => t('Cookie selection type'),
+	  // 'base' tells Drupal the base string for hook functions.
+	  // This is often the module name; if base is set to 'mymodule',
+	  // Drupal would call mymodule_insert() or similar for node
+	  // hooks. In our case, the base is 'node_example'.
+	  'base' => 'cookie_selection',
+	  'description' => t('This is custom node type for Ben Cookies shop'),
+	  'title_label' => t('Cookie'),
+	  // We'll set the 'locked' attribute to TRUE, so users won't be
+	  // able to change the machine name of our content type.
+	  'locked' => TRUE,
+	),
+  );
+}
+
+/**
+ * Implement hook_form().
+ *
+ * Drupal needs for us to provide a form that lets the user
+ * add content. This is the form that the user will see if
+ * they go to node/add/node-example.
+ *
+ * You can get fancy with this form, or you can just punt
+ * and return the default form that node_content will provide.
+ * @param $node
+ * @param $form_state
+ * @return array
+ */
+function cookie_selection_form($node, $form_state){
+   return node_content_form($node, $form_state);
+}
+
+/**
+ * Implement hook_field_widget_info()
+ * @return array
+ */
+function cookie_selection_field_widget_info() {
+    return array(
+        'text_cookies' => array(
+            'label' => t('Cookie widget'),
+            'field types' => array('text'),
+            'settings' => array('rows' => 20, 'summary_rows' => 5 , 'cookie_types' => array()),
+        ),
+    );
+}
+
+/**
+ * Implements hook_field_widget_form().
+ * @param $form
+ * @param $form_state
+ * @param $field
+ * @param $instance
+ * @param $langcode
+ * @param $items
+ * @param $delta
+ * @param $element
+ * @return array
+ */
+function cookie_selection_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+    $summary_widget = array();
+    $main_widget = array();
+
+    switch ($instance['widget']['type']) {
+        case 'text_cookies':
+            $main_widget = $element + array(
+
+                    '#test' => 'test',
+                    '#type' => 'textarea',
+                    '#default_value' => isset($items[$delta]['value']) ? $items[$delta]['value'] : NULL,
+                    '#maxlength' => $field['settings']['max_length'],
+                    '#attributes' => array('cookie_capacity' => 3),
+
+
+                );
+            $main_widget['#theme']='text_cookie_theme';
+            break;
+    }
+
+    if ($main_widget) {
+        // Conditionally alter the form element's type if text processing is enabled.
+        if ($instance['settings']['text_processing']) {
+            $element = $main_widget;
+            $element['#type'] = 'text_format';
+            $element['#format'] = isset($items[$delta]['format']) ? $items[$delta]['format'] : NULL;
+            $element['#base_type'] = $main_widget['#type'];
+        }
+        else {
+            $element['value'] = $main_widget;
+        }
+    }
+    if ($summary_widget) {
+        $element['summary'] = $summary_widget;
+    }
+
+    return $element;
+}
+
+/**
+ * Implement hook_theme()
+ * @param $existing
+ * @param $type
+ * @param $theme
+ * @param $path
+ * @return array
+ */
+function cookie_selection_theme($existing, $type, $theme, $path) {
+    return array(
+        'text_cookie_theme' => array(
+            //'template'=>'text_cookie_temp',
+            'function'=>'cookie_selection_cookie_temp',
+            'path' => drupal_get_path('module', 'text'),
+            'variables' => array(
+                'cookie_capacity'=>NULL
+            ),
+        ),
+        'text_cookie_order_theme' => array(
+            'template'=>'text_cookie_order',
+            'path' => drupal_get_path('module', 'text'),
+            'variables' => array(
+                'cookie_ids'=>NULL
+            ),
+        ),
+    );
+}
+
+function cookie_selection_cookie_temp($var) {
+    //print_r($var);
+    return theme_render_template(drupal_get_path('module', 'cookie_selection').'/theme/text_cookie_temp.tpl.php', array('cookie_capacity' => 3));
+}
+
+function cookie_selection_form_commerce_cart_add_to_cart_form_alter(&$form, &$form_state, $form_id) {
+
+}

@@ -1,0 +1,272 @@
+<?php
+
+/**
+ * This module provides a simple way to create commands for external programs/scripts to execute.
+ * But if you install views, you'll find the default view at /computing-default
+ *
+ * @author Daniel Zhou <http://drupal.org/user/112233>
+ */
+
+/**
+ * @return array status and control code. see Java too.
+ */
+function computing_code($group = 'all', $name_only = FALSE) {
+  $code = array(
+    // status code, set by 3rd party program. see java file too.
+    'status' => array(
+      'OKOK' => array(
+        'name' => t('Successful'),
+        'description' => t('Command runs successfully.'),
+      ),
+      'FAIL' => array(
+        'name' => t('Failed'),
+        'description' => t('Command failed.')
+      ),
+      'RUNG' => array(
+        'name' => t('Running'),
+        'description' => t('Command is running.'),
+      ),
+      'STOP' => array(
+        'name' => t('Stopped'),
+        'description' => t('Command is canceled, or forced to stop.'),
+      ),
+      'NRCG' => array(
+        'name' => t('Unrecognizable'),
+        'description' => t('Command is not recognizable in this application.'),
+      ),
+      'INTR' => array(
+        'name' => t('Interrupted'),
+        'description' => t('Unexpected internal error, or program problem.')
+      ),
+    ),
+
+    // control code, set by drupal to be read by 3rd party program. see java file too.
+    'control' => array(
+      'REDY' => array(
+        'name' => t('Ready'),
+        'description' => t('Command is ready to be executed.'),
+      ),
+      'CNCL' => array(
+        'name' => t('Cancel'),
+        'description' => t('Command should be canceled.'),
+      ),
+      'REMT' => array(
+        'name' => t('Remote'),
+        'description' => t('Command to be executed by a remote program.'),
+      ),
+      'PUSH' => array(
+        'name' => t('Push'),
+        'description' => t('Command created from the PUSH running mode.')
+      ),
+//      'AAAA' => array(
+//        'name' => t('Prioritize'),
+//        'description' => t('Command to be executed with high priority.'),
+//      ),
+    ),
+  );
+
+  if (!$name_only) {
+    if ($group == 'all') {
+      return $code;
+    }
+    else {
+      return $code[$group];
+    }
+  }
+  else {
+    $name_only = array();
+    foreach ($code as $group_name => $group_value) {
+      foreach($group_value as $code_name => $code_value) {
+        $name_only[$group_name][$code_name] = $code_value['name'];
+      }
+    }
+    if ($group == 'all') {
+      return $name_only;
+    }
+    else {
+      return $name_only[$group];
+    }
+  }
+}
+
+
+/**
+ * This is an internal function to query records. It returns the query result object. Calling function is responsible
+ * to fetch array/object from it.
+ *
+ * @param array $conditions
+ * @param int $limit
+ * @return mixed
+ */
+function _computing_query_records($conditions = array(), $limit = 0) {
+  $conditions = computing_validate_fields($conditions);
+
+  $query = db_select('computing_record', 'c');
+  $query->fields('c');
+  foreach ($conditions as $field => $value) {
+    $query->condition($field, $value);
+  }
+
+  if ($limit > 0) {
+    $query->range(0, $limit);
+  }
+
+  return $query->execute();
+}
+
+/**
+ * Query active records. Record is active when status is NULL. This is different from control='REDY',
+ * which means the record is ready to be processed.
+ *
+ * 'input' and 'output' fields are un-encoded byte strings. Callers are responsible for further process.
+ *
+ * @param $app
+ * @return array
+ */
+function computing_query_active_records($app) {
+  $result = _computing_query_records(array('app' => $app, 'status' => NULL));
+  $records = array();
+  foreach ($result as $r) {
+    $records[] = $r;
+  }
+  return $records;
+}
+
+
+/**
+ * Creates a command record and save to {computing_record} queue.
+ * Duplicate command would not get saved twice.
+ * To force saving a duplicate command, set the 'updated' field or any input field with different value in $options.
+ *
+ * Callers should make sure 'input' and 'output' fields are already decoded as byte strings.
+ *
+ * @param $app
+ * @param $command
+ * @param $description
+ * @param $fields
+ * @return The ID of the newly created command record.
+ */
+function computing_create_record($app, $command, $description = NULL, $fields = array()) {
+  $created = isset($fields['created']) ? $fields['created'] : FALSE;
+
+  // array_merge(): 2nd array overrides first one.
+  $fields = array_merge($fields, compact('app', 'command', 'description'));
+  $fields = array_merge(array('control' => 'REDY', 'weight' => 0), $fields);
+
+  $fields = computing_validate_fields($fields, TRUE);
+  unset($fields['created']); // to avoid search duplicate record with 'created' field.
+
+  // since db_merge() doesn't return auto increment id, we simply query to check duplicate and then insert.
+  $result = _computing_query_records($fields, 1);
+  if (($dup = $result->fetchObject()) != FALSE) {
+    watchdog('computing', "Request to create duplicate command record {$dup->id}");
+    return $dup->id;
+  }
+
+  // set "created" after checking for duplicate.
+  $fields['created'] = ($created == FALSE) ? time() : $created;
+
+  $insert = db_insert('computing_record');
+  $insert->fields($fields);
+  $id = $insert->execute();
+
+  return $id;
+}
+
+
+/**
+ * Load one record object according to its id.
+ * Fields 'input' and 'output' are byte strings. Caller functions are responsible to unserialize or do other things.
+ * @param $id
+ */
+function computing_load_record($id, $fields = NULL) {
+  if ($fields == NULL) {
+    //$record = db_query("SELECT * FROM {computing_record} WHERE id = :id", array(':id' => $id))->fetchObject();
+    //return $record ? $record : NULL;  // return NULL rather than FALSE
+    $fields = array();
+  }
+  else {
+    if (!is_array($fields)) {
+      $fields = array($fields);
+    }
+    // validate fields.
+    $schema = drupal_get_schema('computing_record');
+    $valid_fields = array_keys($schema['fields']);
+    $fields = array_intersect($fields, $valid_fields);
+  }
+
+  return db_select('computing_record', 'c')
+    ->fields('c', $fields)
+    ->condition('id', $id)
+    ->execute()
+    ->fetchObject();
+}
+
+
+/**
+ * Update the record with id; only updates the fields in $fields.
+ * Callers are responsible to make sure 'input' and 'output' are bytes.
+ *
+ * @param $id
+ * @param $fields
+ * @return bool
+ */
+function computing_update_record($id, $fields) {
+  $fields = computing_validate_fields($fields);
+  $fields['updated'] = time(); // regardless of whether $fields['updated'] is set already, we update it.
+  unset($fields['id']);
+  $updated = FALSE;
+
+  if (!empty($fields)) {
+    $updated = db_update('computing_record')
+      ->fields($fields)
+      ->condition('id', $id)
+      ->execute();
+  }
+
+  return $updated;
+}
+
+
+function computing_update_record_field($id, $field, $value) {
+  $fields = computing_validate_fields(array($field => $value));
+  return computing_update_record($id, $fields);
+}
+
+/**
+ * @param $fields
+ * @return array of valid fields.
+ */
+function computing_validate_fields($fields, $insert_default = FALSE) {
+  $valid_fields = array();
+  $schema = drupal_get_schema('computing_record');
+  if (is_array($fields)) {
+    $valid_fields = array_intersect_key($fields, $schema['fields']);
+  }
+  if ($insert_default) {
+    foreach($schema['fields'] as $field_name => $field_value) {
+      if ($field_name != 'id' && !array_key_exists($field_name, $valid_fields)) {
+        $valid_fields[$field_name] = isset($field_value['default']) ? $field_value['default'] : NULL;
+      }
+    }
+  }
+  return $valid_fields;
+}
+
+function computing_save_input_json($id, $input) {
+  return computing_update_record_field($id, 'inputjson', drupal_json_encode($input));
+}
+
+function computing_load_output_json($id) {
+  $record = computing_load_record($id, 'outputjson');
+  return drupal_json_decode($record->outputjson);
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function computing_views_api() {
+  return array(
+    'api' => 3,
+  );
+}
