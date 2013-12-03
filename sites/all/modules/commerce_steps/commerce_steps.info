@@ -1,0 +1,7 @@
+; $Id$
+name = Commerce Steps
+description = Add custom names to Drupal Commerce checkout pages (created by ibit)
+dependencies[] = commerce
+package = Commerce Extra
+configure = admin/commerce/config/checkout/commerce_steps
+core = 7.x

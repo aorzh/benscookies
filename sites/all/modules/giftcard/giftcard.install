@@ -1,0 +1,32 @@
+<?php
+/*
+function giftcard_install() {
+    $field = array(
+        'field_name' => 'gift_card',
+        'type' => 'text_long',
+        'cardinality' => 1
+    );
+    field_create_field($field);
+
+// Create the instance on the bundle.
+    $instance = array(
+        'field_name' => 'gift_card',
+        'entity_type' => 'commerce_product',
+        'label' => 'Gift Card',
+        'bundle' => 'commerce_product',
+        'required' => TRUE,
+        'settings' => array(),
+        'widget' => array(
+            'type' => 'text_textarea',
+        ),
+    );
+    field_create_instance($instance);
+}
+*/
+/**
+ * Implement hook_uninstall()
+ * 
+ */
+function giftcard_uninstall() {
+    drupal_uninstall_schema('giftcard');
+}

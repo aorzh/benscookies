@@ -1,0 +1,20 @@
+name = Services Entity
+description = Exposes entities to the Service API.
+package = Services
+core = 7.x
+dependencies[] = services
+dependencies[] = entity
+
+files[] = tests/services_entity.test
+files[] = plugins/services_entity_interface.inc
+files[] = plugins/services_entity_resource.inc
+files[] = plugins/services_entity_resource_clean.inc
+files[] = plugins/services_entity_resource_recurse.inc
+
+configure = admin/structure/services/entity
+; Information added by drupal.org packaging script on 2013-08-07
+version = "7.x-2.0-alpha5"
+core = "7.x"
+project = "services_entity"
+datestamp = "1375891029"
+

@@ -1,0 +1,175 @@
+<?php
+
+//module_load_include('inc', 'giftcard', 'includes/gitfcard');
+
+define('GIFTCARD_PERMISSION', 'administer giftcard');
+
+/**
+ * Implements hook_help.
+ *
+ * Displays help and module information.
+ *
+ * @param path
+ *   Which path of the site we're using to display help
+ * @param arg
+ *   Array that holds the current path as returned from arg() function
+ */
+function giftcard_help($path, $arg) {
+    switch ($path) {
+        case "admin/help#giftcard":
+            return '<p>' . t("Extra textarea field") . '</p>';
+            break;
+    }
+}
+
+
+/**
+ * Implement hook_permission()
+ * @return type
+ */
+function gitfcard_permission() {
+    return array(
+        GIFTCARD_PERMISSION => array(
+            'title' => t('Administer Gifcard Module'),
+            'description' => t('Perform administration tasks for Giftcard Module.'),
+        ),
+    );
+}
+
+/**
+ * implement hook-init
+ */
+function giftcard_init() {
+    $path = drupal_get_path('module', 'giftcard');
+    $path_to_css = $path . '/css/giftcard.css';
+    $path_to_js = $path . '/js/script.js';
+    drupal_add_js($path_to_js);
+    drupal_add_css($path_to_css);
+}
+
+function giftcard_commerce_checkout_page_info() {
+    $checkout_pages = array();
+
+    $checkout_pages['giftcard'] = array(
+        'name' => t('Giftcard'),
+        'title' => t('Sending this to some special?'),
+        'weight' => 3,
+    );
+
+    return $checkout_pages;
+}
+
+/**
+ * Implements hook_commerce_checkout_pane_info()
+ * @return string
+ */
+function giftcard_commerce_checkout_pane_info() {
+  $panes = array();  
+  drupal_add_css(drupal_get_path('module', 'giftcard') . '/css/giftcard.css');
+  
+  $panes['giftcard'] = array(
+    'title' => t('Gift card'),
+    'page' => 'giftcard',
+    'weight' => 1,
+    'file' => 'includes/giftcard.checkout_pane.inc',
+    'base' => 'giftcard_pane',
+    'collapsible' => FALSE,  
+    'collapsed' => FALSE,
+    'callbacks' => array(
+      'checkout_form' => 'giftcard_pane_checkout_form', 
+      'checkout_form_submit' => 'giftcard_pane_checkout_form_submit',
+    ),  
+    'fieldset' => FALSE,  
+  );
+  
+  return $panes;
+}
+/**
+ * 
+ * @param type $checkout_pane
+ * @return type
+ */
+function giftcard_pane_settings_form($form, $form_state) {
+    //return system_settings_form($form);
+    return $form;
+}
+/**
+ * Show date in the order
+ * @param type $entity
+ * @param type $entity_type
+ * @param type $view_mode
+ * @param type $langcode
+ */
+function giftcard_entity_view($entity, $entity_type, $view_mode, $langcode) {
+    if ($entity_type == 'commerce_order') {
+        $content = array();
+        $data_text = $entity->data['giftcard_pane_field_display'];
+        $data_card = $entity->data['giftcard_cards'];
+        if (isset($data_text) && $data_text != NULL) {
+            $content[] = array(
+                '#type' => 'item',
+                '#title' => t('Gift Card text: '),
+                '#markup' => $data_text,
+            );
+        }
+        if (isset($data_card) && $data_card != NULL) {
+            $content[] = array(
+                '#type' => 'item',
+                '#title' => t('Gift Card: '),
+                '#markup' => $data_card,
+            );
+        }
+        
+        $markup = '<div class="giftcard_view_order">' . t('Gift card:') . '</div>';
+        $markup .= drupal_render($content);
+        $markup .= '</div>';
+
+        $entity->content['giftcard'] = array(
+            '#weight' => 10,
+            '#markup' => $markup,
+            '#access' => commerce_order_access($entity),
+        );
+    }
+}
+
+/**
+ * 
+ * @param type $form
+ * @param type $form_state
+ * @param type $checkout_pane
+ * @param type $order
+ */
+function giftcard_pane_checkout_form_submit($form, &$form_state, $checkout_pane, &$order) {
+    $pane_id = $checkout_pane['pane_id'];
+    $pane_values = $form_state['values'][$pane_id];
+    $wrapper = entity_metadata_wrapper('commerce_order', $order);
+    //$total = $wrapper->commerce_order_total->amount->value();
+    $currency_code = $wrapper->commerce_order_total->currency_code->value();
+    $line_items = $wrapper->commerce_line_items;
+
+    if ($form_state['values']['giftcard']['giftcard_print'] == '1') {
+        /**create new line item **/
+        $product = commerce_product_load_by_sku('giftcard'); // static sku. need add this to README.txt
+        $line_item = commerce_product_line_item_new($product);
+        commerce_line_item_save($line_item);
+        $wrapper->commerce_line_items[] = $line_item;
+
+        if (isset($pane_values['giftcard_pane_field_display'])) {
+            $order->data['giftcard_pane_field_display'] = $pane_values['giftcard_pane_field_display'];
+        }
+        if (isset($pane_values['giftcard_print']) && $pane_values['giftcard_print'] == '1') {
+            $order->data['giftcard_cards'] = $pane_values['giftcard_cards'];
+        }
+    }
+    commerce_order_save($order);
+}
+
+/**
+ * 
+ * @param type $form
+ * @param type $form_state
+ * @param type $order
+ */
+ function giftcard_pane_checkout_ajax_callback($form, $form_state,$order){
+     $order = $form_state['order'];
+ }

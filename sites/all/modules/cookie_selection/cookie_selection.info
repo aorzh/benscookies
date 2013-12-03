@@ -1,0 +1,5 @@
+name = Cookie Selection
+description = add cookies to order
+core = 7.x
+dependencies[] = entity
+dependencies[] = commerce
