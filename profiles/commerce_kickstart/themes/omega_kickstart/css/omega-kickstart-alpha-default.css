@@ -325,7 +325,7 @@ div.messages.commerce-add-to-cart-confirmation .message-inner .view-confirm-mess
 .page-checkout #commerce-checkout-form-review fieldset label {
   float: left;
   /* LTR */
-  width: 20%; }
+ }
 .page-checkout #commerce-checkout-form-checkout fieldset .commerce-customer-profile-copy label,
 .page-checkout #commerce-checkout-form-review fieldset .commerce-customer-profile-copy label {
   float: none;

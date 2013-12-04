@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Implement hook_menu()
+ * @return array
+ */
+function slimtraider_profile_menu() {
+    $items = array();
+    $items['profile/test'] = array(
+        'page callback' => 'slimtraider_profile',
+        'access callback' => TRUE,
+    );
+    return $items;
+}
+
+function slimtraider_profile(){
+    krumo(profile2_get_types());
+}

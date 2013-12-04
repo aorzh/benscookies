@@ -14,8 +14,8 @@
  * @param {type} undefined
  * @returns {undefined}
  */
-(function($, Drupal, window, document, undefined) {
-    $(document).ready(function() {
+(function ($, Drupal, window, document, undefined) {
+    $(document).ready(function () {
 
         // if now more than 15pm we will disable current day
         $('#datepicker-schedule').find("input").datepicker({
@@ -23,21 +23,25 @@
             dateFormat: 'dd M y',
             changeMonth: false,
             changeYear: false,
-            beforeShowDay: function(date) {
+            beforeShowDay: function (date) {
                 var currentDay = new Date();
                 var day = currentDay.getDay();
                 var hours = currentDay.getHours();
                 var day = date.getDay();
+
                 if (hours >= 15) {
-                    return [day !== 1 && day !== 0 && day !== 6 && day !== currentDay, ""];
+                    var ds = [day !== 1 && day !== 0 && day !== 6 && day !== currentDay, ""]
+                    return ds;
                 } else {
-                    return [day !== 1 && day !== 0 && day !== 6, ""];
+                    var ds = [day !== 1 && day !== 0 && day !== 6, ""];
+                    return ds;
                 }
             }
         });
-        if ($('#delivery-wrapper').get(0).firstChild != null){
-           // $('#datepicker-schedule').css('display', 'none');
-        }
+        //add default date
+        $('#edit-delivery-delivery-pane-field-display').find("input").datepicker("setDate", new Date());
+        //END add default value
+
     });
 
 })(jQuery, Drupal, this, this.document);

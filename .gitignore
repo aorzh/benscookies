@@ -1,9 +1,13 @@
 # Ignore configuration files that may contain sensitive information.
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9b816a77e36d7bb51fc3bfa02914829d6cb87e7a
 
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
+<<<<<<< HEAD
 =======
 sites/*/*settings*.php
 
@@ -42,3 +46,5 @@ xmlrpc.php
 /scripts
 /themes
 >>>>>>> d461a09aec773cce4700ba110b984ca5712f69a3
+=======
+>>>>>>> 9b816a77e36d7bb51fc3bfa02914829d6cb87e7a

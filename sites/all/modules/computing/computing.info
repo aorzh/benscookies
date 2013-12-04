@@ -1,0 +1,19 @@
+name = Drupal Hybrid Computing
+description = This module saves time-consuming commands in a database table, so that an external script/program can execute them asynchronously.
+package = Computing
+core = 7.x
+
+files[] = computing.install
+files[] = computing.module
+files[] = computing.test
+files[] = computing.views.inc
+files[] = computing.views_default.inc
+
+dependencies[] = views
+
+; Information added by drupal.org packaging script on 2012-08-03
+version = "7.x-1.0-alpha1"
+core = "7.x"
+project = "computing"
+datestamp = "1344014505"
+

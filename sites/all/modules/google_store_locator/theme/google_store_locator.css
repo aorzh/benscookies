@@ -21,3 +21,111 @@
 .storelocator-panel .store-list {
   clear: both;
 }
+
+.store-list .store .misc {
+
+    display: none;
+
+}
+
+
+.store-list .store .postal-code {
+
+    width: 100% !important;
+    margin-left: 0px !important;
+}
+
+
+.store-list .store .address {
+    font-family: 'GillSansMTRegular';
+    font-size: 14px; 
+}
+
+.store-list .store .phone {
+    font-family: 'GillSansMTRegular';
+    font-size: 14px; 
+}
+
+.store-list .store .title {
+    font-family: 'GillSansMTRegular';
+    font-size: 14px; 
+    text-transform: uppercase;
+}
+
+.store-list .store .country {
+
+display:none;
+    
+}
+
+.gm-style-iw {
+
+max-width: 300px;
+
+}
+
+.gm-style-iw .store .postal-code {
+
+  margin-left: 0 !important;
+  width: 100% !important;
+  font-family: 'GillSansMTRegular';
+  font-size: 14px;     
+}
+
+.gm-style-iw .store .misc {
+
+    font-family: 'GillSansMTRegular';
+    font-size: 14px;     
+}
+
+.gm-style-iw .store .address {
+
+    font-family: 'GillSansMTRegular';
+    font-size: 14px;     
+}
+
+.gm-style-iw .store .title {
+
+    font-family: 'GillSansMTRegular';
+    font-size: 14px;     
+    text-transform: uppercase;
+}
+
+.gm-style-iw .store .thoroughfare {
+
+    font-family: 'GillSansMTRegular';
+    font-size: 14px;     
+}
+
+.gm-style-iw .store .country {
+
+    display:none;
+}
+
+.gm-style-iw .store .phone {
+
+    font-family: 'GillSansMTRegular';
+    font-size: 14px;     
+}
+
+.gm-style-iw .store .locality {
+
+    font-family: 'GillSansMTRegular';
+    font-size: 14px;     
+}
+
+
+.storelocator-panel .store-list li {
+
+    border-bottom: 1px dotted #ccc;
+
+}
+
+.storelocator-panel .location-search {
+
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 20px;
+
+}
+
+

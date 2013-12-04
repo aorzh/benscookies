@@ -1,0 +1,11 @@
+"Created","Status","SKU","Quantity","Name","Mail","Country","Area","Locality","Postal_code","Street"
+1347534322,completed,60574100,1,bob,bob@example.com,US,CA,Los Angeles,90016,67 West Washington Boulevard
+1347534388,pending,23548568,1,tom,tom@example.com,ES,88,Calvo Sotelo,47600,Villalón de Campos
+1347534392,completed,23548568,1,julien,julien@example.com,US,CA,Los Angeles,90250,7 Still Pastures Drive
+1347534392,completed,62730975,2,julien,julien@example.com,US,CA,Los Angeles,90250,7 Still Pastures Drive
+1347534392,completed,28646827,1,julien,julien@example.com,US,CA,Los Angeles,90250,7 Still Pastures Drive
+1347534478,pending,60751606,3,rob,rob@example.com,,US,FL,Miami,33143,102 Golden Street
+1345294541,pending,60574100,1,john,john@example.com,FR,,PARIS,75002,Rue du sentier
+1345294548,completed,60751606,2,patrick,patrick@example.com,US,SF,San Francisco,94123,Beatch street
+1345294548,completed,62730975,1,patrick,patrick@example.com,US,SF,San Francisco,94123,Beatch street
+1345294722,completed,23548568,1,rob,rob@example.com,US,FL,Miami,33143,102 Golden Street

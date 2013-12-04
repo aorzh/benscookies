@@ -1,0 +1,177 @@
+.hidden {
+    display: none;
+}
+.page-checkout-giftcard #region-content {
+    background-color: #EDE3DA;
+    color: #EE3823;
+}
+.giftcard_view_order {
+    background-color: #E5E5E5;
+    font-size: 14px;
+    padding: 7px 10px;
+    color: red;
+}
+input.cards {
+    display:none;
+}
+
+input.cards + label {
+    height: 100px;
+    width: 100px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+    font-size: 0;
+}
+
+input.cards:checked + label {
+    -webkit-box-shadow: 1px 0px 12px rgba(50, 50, 50, 1);
+    -moz-box-shadow:    1px 0px 12px rgba(50, 50, 50, 1);
+    box-shadow:         1px 0px 12px rgba(50, 50, 50, 1); 
+    height: 100px;
+    width: 100px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+label[for="edit-giftcard-giftcard-cards-birthday"] {
+    background-image: url("/sites/all/modules/giftcard/img/birthday.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+label[for="edit-giftcard-giftcard-cards-congradulations"] {
+    background-image: url("/sites/all/modules/giftcard/img/congrad.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+label[for="edit-giftcard-giftcard-cards-thanks"] {
+    background-image: url("/sites/all/modules/giftcard/img/thanks.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+label[for="edit-giftcard-giftcard-cards-thinking-of-you"] {
+    background-image: url("/sites/all/modules/giftcard/img/love.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+label[for="edit-giftcard-giftcard-cards-thanks"] {
+    background-image: url("/sites/all/modules/giftcard/img/thanks.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+label[for="edit-giftcard-giftcard-cards-bens-logo"] {
+    background-image: url("/sites/all/modules/giftcard/img/logo.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.form-item-giftcard-giftcard-pane-field-display {
+    border-right: 1px solid #DFD5CC;
+    float: left;
+    padding-right: 40px;
+    width: 45%;
+}
+.giftcard.form-wrapper {
+    padding: 0 35px;
+}
+.card-wrap {
+    float: right;
+}
+#edit-giftcard {
+    border-top: 1px solid #DFD5CC;
+    
+}
+.form-radios.cards {
+    float: right;
+    width: 45%;
+    margin-right: 20px;
+}
+.form-item.form-type-radios.form-item-giftcard-giftcard-print {
+    float: right;
+    width: 45%;
+}
+
+.form-item-giftcard-giftcard-cards {
+    float: left;
+    width: 100px;
+    padding-left: 20px;
+    margin-bottom: 1em !important;
+}
+
+.div-label {
+    color: #000000;
+    font-family: sans-serif;
+    font-size: 12px;
+    margin-top: 100px;
+    text-align: center;
+}
+.form-item.form-type-radio.form-item-giftcard-giftcard-print {
+    color: #000000;
+    float: left;
+    padding: 5px;
+}
+
+#edit-giftcard label[for="edit-giftcard-giftcard-print"] {
+   color: #000;
+    font-family: 'GillSansMTRegular';
+    /*width: 45% !important;*/
+    text-align:left !important;
+   /* font-size: 18px;*/
+    float: none;
+    width: auto;
+}
+
+#edit-giftcard label[for="edit-giftcard-giftcard-pane-field-display"]{
+    
+   color: #000;
+    font-family: 'GillSansMTRegular';
+   /* width: 60% !important;*/
+    text-align:left !important;
+    /*font-size: 18px;*/
+    margin-bottom: 20px;
+    float: none;
+    width: auto;
+}
+.form-item-giftcard-giftcard-print label {
+    width: auto !important;
+}
+.cart-sample {
+    color: #000000;
+    margin-top: 60px;
+    margin-bottom: 80px;
+}
+.cart-sample-img {
+     background-image: url("/sites/all/modules/giftcard/img/sample.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;   
+    width: 317px;
+    height: 102px;
+    
+}
+#commerce-checkout-form-giftcard #edit-buttons .fieldset-wrapper {
+    float: right;
+    margin: 20px;
+}
+#commerce-checkout-form-giftcard #edit-buttons .fieldset-wrapper #edit-continue {
+    background-color: #EE3523;
+    border-radius: 0;
+}
+.page-checkout-giftcard #page-title{
+    text-align: center;
+}
+.box {
+     background-image: url("/sites/all/modules/giftcard/img/box.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;   
+    width: 34px;
+    height: 37px;
+    margin: 15px auto 0;
+}
+
+#edit-giftcard-giftcard-print input {
+
+    width: 60px;
+}
+    
+#edit-giftcard-giftcard-pane-field-display{
+
+        font-family: 'Dakota-Regular';
+  font-size: 18px;
+}

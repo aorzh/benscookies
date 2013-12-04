@@ -979,7 +979,7 @@ function commerce_line_item_field_widget_info() {
 }
 
 /**
- * Implements hook_field_widget_form().
+ * Implements theme_commerce_line_item_manager
  *
  * Used to define the form element for custom widgets.
  */
@@ -1150,53 +1150,19 @@ function theme_commerce_line_item_manager($variables) {
   $rows = array();
 
   // Add each line item to the table.
-  $liid = 0;
-  foreach (element_children($form['line_items']) as $line_item_id) { 
-    
-     $content = '';
-     if (isset($form['line_items'][$line_item_id]['line_item']['#value']->field_cookie_selector_1['und'][0]['value']))
-     {
-        $json = json_decode($form['line_items'][$line_item_id]['line_item']['#value']->field_cookie_selector_1['und'][0]['value']);  
-
-         $query = new EntityFieldQuery();
-
-           $query->entityCondition('entity_type', 'node');
-           $query->entityCondition('bundle', 'cookie_type');
-           $result = $query->execute(); 
-
-           if (isset($result['node'])) {
-               $items_nids = array_keys($result['node']);
-               $items = entity_load('node', $items_nids);
-             } 
-             foreach ($items as $i)
-             {   
-                
-                foreach ($json as $j) if ($j->vid==$i->vid)
-                {
-                    $content.="<a href=\"".url('node/'.$i->nid)."\">".$i->title.'</a>: ';
-                    $content.= '<b>'.$j->count.'</b>';
-                }
-                $content.='<br />'; 
-             }
-    
-     }
-      
+  foreach (element_children($form['line_items']) as $line_item_id) {
     $row = array(
       drupal_render($form['line_items'][$line_item_id]['remove']),
       drupal_render($form['line_items'][$line_item_id]['title']),
       drupal_render($form['line_items'][$line_item_id]['line_item_label']),
-      drupal_render($form['line_items'][$line_item_id]['commerce_unit_price']), 
+      drupal_render($form['line_items'][$line_item_id]['commerce_unit_price']),
       drupal_render($form['line_items'][$line_item_id]['quantity']),
       drupal_render($form['line_items'][$line_item_id]['commerce_total']),
-      $content,
-    ); 
-    $liid = $line_item_id; 
-    //$form['line_items'][$line_item_id]['line_item']['#value']->field_cookie_selector_1['und'][0]['value']
+      drupal_render($form['line_items'][$line_item_id]['cookies']), //HARDCODE
+    );
+
     $rows[] = $row;
-  } 
-  
-  
-  array_push($form['#header'], 'Content');
+  }
 
   // Setup the table's variables array and build the output.
   $table_variables = array(
@@ -1207,9 +1173,7 @@ function theme_commerce_line_item_manager($variables) {
   );
 
   $output = theme('table', $table_variables) . drupal_render($form['actions']);
-    
-
-  return '<div id="line-item-manager" class="clearfix">'.  $output . '</div>';
+  return '<div id="line-item-manager" class="clearfix">' . $output . '</div>';
 }
 
 /**

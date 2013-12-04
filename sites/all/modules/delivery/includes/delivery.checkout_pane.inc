@@ -1,39 +1,16 @@
 <?php
 
 /**
- * Refresh countries
- * @param type $commands
- * @param type $form
- * @param type $form_state
+ * 
+ * @return type
  */
-function delivery_addressfield_standard_widget_refresh_alter(&$commands, $form, $form_state) {
+function delivery_ajax_disable_select() {
+    ctools_include('ajax');
+    $commands = array();
+    $commands[] = ajax_command_invoke('select[name="delivery[delivery_date]"]', 'removeAttr', array("disabled"));
+    
 
-    // The target element is one element below the triggering country selector.
-    $array_parents = $form_state['triggering_element']['#array_parents'];
-    array_pop($array_parents);
-
-    // Iterate over the form parents to find the element.
-    $element = $form;
-    foreach ($array_parents as $name) {
-
-        $element = &$element[$name];
-        if (!empty($element['#addressfield'])) {
-            break;
-        }
-    }
-
-    $chosen_country = $element['country']['#default_value'];
-    $countries = variable_get('delivery_pane_countries', FALSE);
-    if (is_array($countries) && isset($countries[$chosen_country])) {
-        ctools_include('ajax');
-        variable_set('shipping_country', $chosen_country);
-        //$commands[] = ctools_ajax_command_reload();
-        $commands[] = ajax_command_invoke('#edit-delivery', 'html', array(render(delivery_pane_checkout_form())));
-        $commands[] = ajax_command_css('#edit-delivery', array('display' => 'block'));
-    } else {
-        variable_set('shipping_country', $chosen_country);
-        $commands[] = ajax_command_css('#edit-delivery', array('display' => 'none'));
-    }
+    return array('#type' => 'ajax', '#commands' => $commands);
 }
 
 /**
@@ -54,6 +31,7 @@ function delivery_pane_checkout_form($form, $form_state, $checkout_pane, $order)
     $country = $shipping['country'];
     $shortcode = $shipping['postal_code'];
     $order_id = commerce_cart_order_id($uid = $user->uid);
+
 
     $london_codes = array(
         'E1', 'W1', 'SE1', 'SW1', 'WC1', 'WC2', 'EC1', 'EC2', 'EC3', 'EC4', 'N1',
@@ -81,7 +59,7 @@ function delivery_pane_checkout_form($form, $form_state, $checkout_pane, $order)
 
                 $checkout_form['delivery_pane_field_display'] = array(
                     '#type' => 'date_popup',
-                    '#default_value' => '',
+                    '#default_value' => variable_get('choosed', NULL),
                     '#size' => 21,
                     //'#maxlength' => 100,
                     '#date_flexible' => 0,
@@ -100,51 +78,71 @@ function delivery_pane_checkout_form($form, $form_state, $checkout_pane, $order)
                         'wrapper' => 'test-form-wrapper',
                     ),
                 );
+
                 $checkout_form['delivery_pane_field_display']['#attached']['js'] = array(
                     drupal_get_path('module', 'delivery') . '/js/london_date.js',
                 );
 
-                $hours = date('H');
+                $hours = (int)date('Hi');
+                
                 $date_now = variable_get('date_now');
-                if ($date_now == TRUE) {
-                    //Create custom options
-
-                    if ($hours >= '17') {
+                if ($date_now == TRUE && $hours <= 1700) {
+                    if ($hours <= 859 && $hours <= 1659) {
                         $options = array(
+                            'Daytime (9-6pm)' => 'Daytime (9-6pm)',
                             'Lunchtime (11am - 1pm)' => 'Lunchtime (11am - 1pm)',
                             'Early afternoon (1pm - 3pm)' => 'Early afternoon (1pm - 3pm)',
                             'Late afternoon (3pm - 5pm)' => 'Late afternoon (3pm - 5pm)',
                         );
-                    } elseif ($hours >= '9' && $hours < '18') {
+                    }
+                    if ($hours >= 859 && $hours <= 1059) {
                         $options = array(
                             'Daytime (9-6pm)' => 'Daytime (9-6pm)',
                             'Early afternoon (1pm - 3pm)' => 'Early afternoon (1pm - 3pm)',
                             'Late afternoon (3pm - 5pm)' => 'Late afternoon (3pm - 5pm)',
                         );
-                    } elseif ($hours >= '15' && $hours < '18') {
+                    } elseif ($hours >= 1059 && $hours <= 1259) {
                         $options = array(
                             'Daytime (9-6pm)' => 'Daytime (9-6pm)',
-                            'Lunchtime (11am - 1pm)' => 'Lunchtime (11am - 1pm)',
-                            'Early afternoon (1pm - 3pm)' => 'Early afternoon (1pm - 3pm)',
+                            'Late afternoon (3pm - 5pm)' => 'Late afternoon (3pm - 5pm)',
+                        );
+                    } elseif ($hours >= 1259 && $hours <= 1659) {
+                        $options = array(
+                            'Daytime (9-6pm)' => 'Daytime (9-6pm)',
                         );
                     }
 
-
                     $checkout_form['delivery_date'] = array(
                         '#type' => 'select',
-                        '#title' => t('Time slots'),
+                        '#title' => t('Time'),
                         '#options' => $options,
                         '#disabled' => FALSE,
                     );
                 }
-
+                $choosed_date = variable_get('choosed');
+                $current_date = date('Y-m-d');
+                
+                if ($choosed_date === $current_date && $hours >= 1259) {
+                  
                 $checkout_form['delivery_date'] = array(
-                    '#type' => 'select',
-                    '#title' => t('Time slots'),
-                    '#default_value' => '',
-                    '#options' => $options,
-                    '#disabled' => FALSE,
-                );
+                        '#type' => 'select',
+                        '#title' => t('Time'),
+                        '#options' => $options,
+                        '#disabled' => FALSE,
+                        '#attributes' => array(
+                          'class' => array(
+                              'disabled'
+                              ),  
+                        ),
+                    );
+                } elseif ($choosed_date !== $current_date ) {
+                    $checkout_form['delivery_date'] = array(
+                        '#type' => 'select',
+                        '#title' => t('Time'),
+                        '#options' => $options,
+                        '#disabled' => FALSE,
+                    );
+                }
                 return $checkout_form;
             }
         }
@@ -155,11 +153,11 @@ function delivery_pane_checkout_form($form, $form_state, $checkout_pane, $order)
 
             $checkout_form['delivery_pane_field_display_1'] = array(
                 '#type' => 'date_popup',
-                '#default_value' => '',
+                //'#default_value' => variable_get('choosed', NULL),
                 '#size' => 21,
                 //'#maxlength' => 100,
                 '#date_flexible' => 0,
-                //'#date_timezone' => date_default_timezone(),
+                '#date_timezone' => date_default_timezone(),
                 '#date_year_range' => (date('Y')) . ':+0',
                 '#date_format' => 'd M y',
                 '#required' => TRUE,
@@ -175,10 +173,12 @@ function delivery_pane_checkout_form($form, $form_state, $checkout_pane, $order)
             $checkout_form['delivery_pane_field_display_1']['#attached']['js'] = array(
                 drupal_get_path('module', 'delivery') . '/js/date.js',
             );
+
             return $checkout_form;
         }
     }
 
+    delivery_ajax_disable_select();
     return false;
 }
 
@@ -189,21 +189,22 @@ function delivery_pane_checkout_form($form, $form_state, $checkout_pane, $order)
  * @return type
  */
 function delivery_form_refresh($form, $form_state) {
-
+    ctools_include('ajax');
+    variable_del('choosed');
     $choosed_date = $form_state['values']['delivery']['delivery_pane_field_display'];
     $current_date = date('Y-m-d');
 
     variable_del('date_now');
-
+    variable_set('choosed', $choosed_date);
     if ($choosed_date == $current_date) {
         variable_set('date_now', TRUE);
     } else {
         variable_set('date_now', FALSE);
     }
 
-    ctools_include('ajax');
     $commands = array();
     $commands[] = ctools_ajax_command_reload();
+    $commands[] = ajax_command_invoke('select[name="delivery[delivery_date]"]', 'attr', array("disabled", "disabled"));
   
     return array('#type' => 'ajax', '#commands' => $commands);
 }

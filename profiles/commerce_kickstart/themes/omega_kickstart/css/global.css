@@ -137,7 +137,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0; }
 
 a:link, a:visited {
-  color: #2698f2;
+  color: #ee3524;
   text-decoration: none; }
 
 a:hover {
@@ -329,7 +329,7 @@ select {
       line-height: 30px;
       margin: 0; }
       .block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-quantity {
-        color: #2698f2;
+        color: #ee3524;
         text-decoration: none; }
       .block-shopping-cart-block .content .view-shopping-cart .line-item-summary .line-item-total {
         color: #888888;
@@ -369,7 +369,7 @@ select {
 * 2.2. Zone branding
 **********************************************/
 .zone-branding .region-branding {
-  margin: 50px 0 15px 0; }
+  margin: 30px 0 10px 0 }
   .zone-branding .region-branding .logo-img {
     float: none;
     margin: 10px 0;
@@ -493,12 +493,7 @@ select {
     font-weight: 600;
     margin: 0;
     padding: 0 0 10px 0; }
-  .navigation .primary-menu,
-  .navigation .second-menu {
-    display: block;
-    font-size: 1em;
-    margin: 0 10px;
-    padding: 10px 0 0 0; }
+
     .navigation .primary-menu ul,
     .navigation .second-menu ul {
       margin: 0; }
@@ -618,7 +613,7 @@ select {
     margin: 0 0 0 10px;
     /* LTR */ }
     #region-breadcrumb .pseudo-breadcrumb-total-results em {
-      color: #2698f2;
+      color: #ee3524;
       font-style: normal; }
   #region-breadcrumb .pseudo-breadcrumb {
     background-color: #eeeeee;
@@ -1436,8 +1431,7 @@ body.activebar-container .zone-footer2-wrapper {
 * Add to cart popin.
 */
 div.messages.commerce-add-to-cart-confirmation {
-  background-color: #E4F5FE;
-  border-color: #D7D7D7;
+  background-color: #fff
   margin-left: -30% !important;
   /* width/2 */
   top: 50px;
@@ -1460,7 +1454,7 @@ div.messages.commerce-add-to-cart-confirmation {
     right: none;
     width: auto; }
     div.messages.commerce-add-to-cart-confirmation .message-inner .button-wrapper .button.checkout {
-      background-color: #2698f2; }
+      background-color: #ee3524; }
     div.messages.commerce-add-to-cart-confirmation .message-inner .button-wrapper .button.continue {
       background-color: #b3b3b3; }
   div.messages.commerce-add-to-cart-confirmation .message-inner .view-confirm-message-product-display {
@@ -1525,7 +1519,7 @@ div.messages.commerce-add-to-cart-confirmation {
           padding-right: 5px;
           /* LTR */ }
         div.messages.commerce-add-to-cart-confirmation .message-inner .view-confirm-message-product-display .view-content .views-field-commerce-total .field-content {
-          color: #2698f2;
+          color: #ee3524;
           display: inline;
           float: right;
           /* LTR */
@@ -1642,7 +1636,7 @@ div.messages.commerce-add-to-cart-confirmation {
       border: 1px solid #CBCDCC;
       padding: 3px; }
     .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .attribute-widgets .form-item-attributes-field-color .description-selected .field {
-      border-color: #2698f2; }
+      border-color: #ee3524; }
     .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart label {
       float: left;
       /* LTR */
@@ -1658,7 +1652,7 @@ div.messages.commerce-add-to-cart-confirmation {
       margin: 0;
       padding-bottom: 1em; }
     .node-product-type .field-type-commerce-product-reference form.commerce-add-to-cart .form-submit {
-      background-color: #2698F2;
+      background-color: #ee3524;
       background-image: url("../images/bg_add_to_cart.png");
       background-position: 90% 50%;
       /* LTR */
@@ -1804,7 +1798,7 @@ ol.inline.commerce-checkout-progress {
     background-color: transparent;
     border-bottom: 1px solid #CCC;
     margin: 0;
-    padding: 25px 10px; }
+    /*padding: 25px 10px;*/ }
   #views-form-commerce-cart-form-default table .views-field-edit-delete,
   #views-form-commerce-cart-form-default table .views-field-commerce-total,
   #commerce-checkout-form-checkout .view-commerce-cart-summary table .views-field-edit-delete,
@@ -1842,8 +1836,7 @@ ol.inline.commerce-checkout-progress {
     /* LTR */
     margin-bottom: 20px;
     padding: 10px 15px;
-    min-width: 280px;
-    width: 280px; }
+    min-width: 100%;}
     .field-name-commerce-order-total .field-items table.commerce-price-formatted-components {
       width: 100%; }
       .field-name-commerce-order-total .field-items table.commerce-price-formatted-components tr, .field-name-commerce-order-total .field-items table.commerce-price-formatted-components even,
@@ -1880,7 +1873,7 @@ ol.inline.commerce-checkout-progress {
     overlay: 0; }
   .page-checkout .checkout-buttons input#edit-continue,
   .page-checkout .checkout-buttons input.checkout-continue {
-    background: #2698F2 none 0 0 no-repeat;
+    background: #ee3524 none 0 0 no-repeat;
     border: 0;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -1980,7 +1973,7 @@ ol.inline.commerce-checkout-progress {
     /* LTR */
     padding: 0 0 1px 0; }
   .page-cart #views-form-commerce-cart-form-default .commerce-line-item-actions input#edit-checkout {
-    background: #2698F2 none 0 0 no-repeat;
+    background: #ee3524 none 0 0 no-repeat;
     border: 0;
     -moz-border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -2592,8 +2585,8 @@ article.comment {
   .page-checkout #user-profile-form .form-submit,
   .page-checkout #user_login_form .form-submit,
   .page-checkout #user_pass_form .form-submit {
-    background: #199107;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #60aa20), color-stop(1, #199107));
+    background: #ee3524;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ee3524), color-stop(1, #ee3524));
     background: -moz-linear-gradient(top center, #60aa20 0%, #199107 100%);
     border: 0;
     -moz-border-radius: 4px;
@@ -2618,8 +2611,9 @@ article.comment {
   .page-checkout #user-register-form h1,
   .page-checkout #user_login_form h1,
   .page-checkout .create-account h2,
-  .page-checkout #user_pass_form h1 {
-    font: normal 300 38px/38px "Open Sans", Arial, sans-serif; }
+  .page-checkout #user_pass_form h1 { 
+    font-size: 28px;
+}
   .page-user form#user-register-form .form-item-pass,
   .page-user form#user-profile-form .form-item-pass,
   .page-checkout form#user-register-form .form-item-pass,
@@ -2719,10 +2713,10 @@ article.comment {
       padding-bottom: 20px; }
       .page-user form#user-login #user_login_form .login-password,
       .page-checkout form#user-login #user_login_form .login-password {
-        color: #2698f2; }
+        color: #ee3524; }
         .page-user form#user-login #user_login_form .login-password:hover,
         .page-checkout form#user-login #user_login_form .login-password:hover {
-          color: #2698f2;
+          color: #ee3524;
           text-decoration: underline; }
     .page-user form#user-login .create-account,
     .page-checkout form#user-login .create-account {
@@ -2740,9 +2734,9 @@ article.comment {
   .page-user a.login-account,
   .page-checkout a.login-register,
   .page-checkout a.login-account {
-    background: #207cca;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #2698f2), color-stop(1, #207cca));
-    background: -moz-linear-gradient(top center, #2698f2 0%, #207cca 100%);
+    background: #ee3524;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ee3524), color-stop(1, #ee3524));
+    background: -moz-linear-gradient(top center, #ee3524 0%, #207cca 100%);
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     -khtml-border-radius: 4px;
@@ -2755,7 +2749,7 @@ article.comment {
     .page-user a.login-account:hover,
     .page-checkout a.login-register:hover,
     .page-checkout a.login-account:hover {
-      background: #2698f2; }
+      background: #ee3524; }
   .page-user a.login-register,
   .page-checkout a.login-register {
     display: block;
@@ -2920,7 +2914,7 @@ html.js #commerce-backoffice-message-form fieldset .fieldset-legend {
   padding: 0 0 0 30px; }
 
 #commerce-backoffice-message-form .fieldset-legend a {
-  color: #2698F2;
+  color: #ee3524;
   font-family: 'Open Sans', sans-serif;
   font-weight: 700;
   text-decoration: none;
@@ -2963,3 +2957,413 @@ html.js #commerce-backoffice-message-form fieldset .fieldset-legend {
   .in-maintenance #page .page-wrapper {
     background: #fff;
     padding: 10px 10px 20px 10px; }
+
+
+
+/* MAXIM'S EDIT*/
+
+
+.form-required  {
+
+    color: #000;
+
+}
+
+.edit-submitted-location {
+    
+    border-radius: 10px;
+
+}
+
+.webform-client-form {
+	position:relative;
+	z-index:300;
+	margin-top:20px;
+}
+
+.webform-client-form p {
+	color:#FFF;
+	font-family:'Amaranth',sans-serif;
+	font-size:18px;
+	margin-bottom:2px;
+	padding:4px;
+	text-transform:capitalize;
+}
+
+.contact-form input {
+	background:#15002F;
+	width:98%;
+	height:40px;
+	margin-bottom:20px;
+	padding-left:8px;
+	font-family:arial;
+	font-weight:400;
+	font-size:16px;
+	color:#fff;
+	border:0;
+	border-radius:3px;
+	-webkit-border-radius:3px;
+}
+
+.contact-form textarea {
+	background:#15002F;
+	margin-bottom:10px;
+	padding-left:5px;
+	font-family:arial;
+	font-weight:400;
+	font-size:16px;
+	color:#fff;
+	width:98%;
+	border:none;
+	height:200px;
+	border-radius:3px;
+	-webkit-border-radius:3px;
+}
+
+.contact-form input.submit-button {
+	background:#15002F;
+	border:0 none;
+	color:#FFF;
+	cursor:pointer;
+	float:left;
+	font-family:'museo_sans_700regular';
+	font-size:14px;
+	font-weight:400;
+	min-height:34px;
+	margin-bottom:20px;
+	opacity:1;
+	padding:8px;
+	text-decoration:none;
+	text-transform:uppercase;
+	width:92px;
+}
+
+.contact-form input.submit-button:hover {
+	color:#e8e8e8;
+	background:#000;
+	border:0;
+}
+
+
+
+/* A HA!! */
+
+.webform-client-form input {
+
+    background:#efefef;
+	width:75%;
+	height:40px;
+	margin-bottom:20px;
+	padding-left:8px;
+	font-weight:400;
+	font-size:16px;
+	color:#000;
+	border:0;
+	border-radius:3px;
+	-webkit-border-radius:3px;
+  
+}
+
+.webform-client-form label {
+
+    width: 20%;
+    display:block;
+    float:left;
+    text-align:right;
+
+}
+
+.webform-client-form .form-submit {
+    
+	width:92px;
+}
+
+/*
+
+.customer_profile_billing input {
+
+	width:75%;
+	height:40px !important;
+	margin-bottom:20px;
+	padding-left:8px;
+	font-weight:400;
+	font-size:16px;
+	color:#000;
+	border:0;
+	border-radius:3px;
+	-webkit-border-radius:3px; 
+
+}
+
+
+ A HA!! */
+
+
+
+#node-webform-29 textarea,
+#node-webform-29 select,
+#node-webform-29 input[type="date"],
+#node-webform-29 input[type="datetime"],
+#node-webform-29 input[type="datetime-local"],
+#node-webform-29 input[type="email"],
+#node-webform-29 input[type="month"],
+#node-webform-29 input[type="number"],
+#node-webform-29 input[type="password"],
+#node-webform-29 input[type="search"],
+#node-webform-29 input[type="tel"],
+#node-webform-29 input[type="text"],
+#node-webform-29 input[type="time"],
+#node-webform-29 input[type="url"],
+#node-webform-29 input[type="week"] {
+  background: #efefef !important;
+  border: 1px solid #e0e0e0;
+  color: #4c4c4c;
+  margin: 1px;
+  padding: 0px 5px; 
+  border-radius: 4px;
+  border: 1px solid #ccc;
+min-height: 40px;
+width: 70%}
+
+.form-item label {
+
+    width: 25%;
+  display:block;
+    float:left;
+    text-align:right;
+}
+
+#webform-component-your-message textarea {
+
+    width: 75%;
+
+}
+
+#webform-component-your-message label {
+
+    width: 20%;
+  display:block;
+    float:left;
+    text-align:right;
+    margin-right: 14px;
+
+}
+
+#node-webform-29 .form-submit {
+
+    float:right;
+
+}
+
+div.status {
+
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 4px;
+    
+}
+
+
+.region-postscript-second {
+
+
+
+}
+
+
+.isotope-element {
+
+    width: 170px !important;
+    height: 210px;
+    margin: 5px 5px !important;
+
+}
+
+#user_login_form input {
+
+    background:#efefef;
+	width:75% !important;
+	height:40px !important;
+	margin-bottom:5px;
+	padding-left:8px;
+	font-weight:400;
+	font-size:16px;
+	color:#000;
+	border:0;
+	border-radius:3px;
+	-webkit-border-radius:3px;
+  
+}
+
+#user_login_form label {
+
+    width: 20%;
+  display:block;
+    float:left;
+    text-align:right;
+line-height: 40px;
+}
+
+#user_login_form .form-submit {
+
+    width: 159px !important;
+    float: right !important;
+    margin-right: 20px !important;
+    height: 54px !important;
+    disply
+}
+
+#user_login_form .description 
+  {
+  display:none;
+  }
+
+#user_login_form .login-password 
+  {
+  float: left;
+  margin-left: 20%;
+  margin-bottom: 10px;
+  }
+
+#cboxContent img 
+  {  
+  float:right;
+  }
+
+.div.messages.commerce-add-to-cart-confirmation .message-inner .button-wrapper 
+  {
+  background-color: #eee4db;
+  }
+
+.cart-page .field-name-commerce-order-total 
+  {
+  float:right;
+  }
+
+.commerce-price-formatted-components 
+  {
+  color: #fff;
+  }
+
+#block-block-11 
+  {
+  background-color: #eee4db;
+  padding: 5px;
+  }
+
+
+.review-pane.cart_contents {
+
+  display:block;
+  width: 99%;
+  float:left;
+  padding:5px;
+  margin-bottom: 10px;
+  border: 1px dotted #eef4fd;
+      height: 240px;
+}
+
+
+#edit-commerce-payment {
+
+  display:block;
+  width: 47%;
+  float:left;
+  padding:5px;
+  margin-right: 1%;
+  margin-bottom: 10px;
+  border: 1px dotted #eef4fd;
+  overflow: auto;
+}
+
+.review-pane.giftcard {
+
+  background-color: #efefef;
+  display:block;
+  width: 47%;
+  float:left;
+  padding:5px;
+  margin-right: 1%;
+  margin-bottom: 10px;
+  border: 1px dotted #eef4fd;
+      height: 240px;
+    
+}
+
+.review-pane.account {
+
+  background-color: #efefef;
+  display:block;
+  width: 47%;
+  float:left;
+  padding:5px;
+  margin-right: 1%;
+  margin-bottom: 10px;
+  border: 1px dotted #eef4fd;
+      height: 240px;
+}
+
+.review-pane.customer_profile_billing {
+
+  background-color: #efefef;
+  display:block;
+  width: 47%;
+  float:left;
+  padding:5px;
+  margin-right: 1%;
+  margin-bottom: 10px;
+  border: 1px dotted #eef4fd;
+  height: 240px;
+}
+
+
+.review-pane.delivery {
+
+  background-color: #efefef;
+  display:block;
+  width: 47%;
+  float:left;
+  margin-right: 1%;
+  margin-bottom: 10px;
+  border: 1px dotted #eef4fd;
+  padding:5px;
+      height: 240px;
+}
+
+.review-pane.customer_profile_shipping {
+
+background-color: #efefef;
+  display:block;
+  width: 47%;
+  float:left;
+  padding:5px;
+  margin-right: 1%;
+  margin-bottom: 10px;
+  border: 1px dotted #eef4fd;
+  height: 240px;
+
+}
+
+.review-pane.cart_contents table {
+
+width: 100%;
+border-bottom: 1px solid #EEE3DA !important;
+
+}
+
+.review-pane.cart_contents table tr {
+
+background-color: #fff;
+
+}
+
+.review-pane.cart_contents table th {
+
+color: #EE3524;
+text-transform: uppercase;
+}
+
+.page-checkout #commerce-checkout-form-checkout fieldset label{
+
+    width: 25% ;
+
+}

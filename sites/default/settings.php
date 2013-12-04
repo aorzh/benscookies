@@ -37,10 +37,12 @@ $databases = array(
 		'prefix'=>''))
 );
 */
+/*
 $databases = array(
 	'default'=>array(
 		'default'=>array(
-		'database'=>'cookies.loc',
+		//'database'=>'cookies.loc',
+        'database' => 'semperte_cookies',
 		'username'=>'root',
 		'password'=>'root',
 		'host'=>'localhost',
@@ -48,12 +50,38 @@ $databases = array(
 		'driver'=>'mysql',
 		'prefix'=>''))
 );
-
-
+*/
+$databases = array(
+	'default'=>array(
+		'default'=>array(
+		//'database'=>'cookies.loc',
+        'database' => 'semperte_cookie2',
+		'username'=>'semperte_cookie2',
+		'password'=>'8c9nttlu',
+		'host'=>'semperte.mysql.ukraine.com.ua',
+		'port'=>'',
+		'driver'=>'mysql',
+		'prefix'=>''))
+);
+/*
+$databases = array(
+    'default' => array(
+        'default' => array(
+            'database' => 'semperte_cookies',
+            'username' => 'semperte_cookies',
+            'password' => 'cy5mcrsc',
+            'host' => 'semperte.mysql.ukraine.com.ua',
+            'port' => '',
+            'driver' => 'mysql',
+            'prefix' => ''))
+);
+*/
 // On Acquia Cloud, this include file configures Drupal to use the correct
 // database in each site environment (Dev, Stage, or Prod). To use this 
 // settings.php for development on your local workstation, set $db_url
 // (Drupal 5 or 6) or $databases (Drupal 7) as described in comments above.
-if (file_exists('/var/www/site-php')) {
-  require('/var/www/site-php/maximlester/maximlester-settings.inc');
-}
+//if (file_exists('/var/www/site-php')) {
+  //require('/var/www/site-php/maximlester/maximlester-settings.inc');
+//}
+
+ini_set('memory_limit', '512M');

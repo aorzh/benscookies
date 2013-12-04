@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYSIS_IN_BACKGROUND" value="true" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3d892738-3a2a-4e31-8427-e3641932528e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/custom.info" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/custom.module" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sites/all/modules/custom/js/script.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/field/modules/text/text_cookie.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/field/modules/text/text_cookie_order.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/field/modules/text/text_cookie_temp.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/_template.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/cookie_select/cookie_order_items.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/cookie_select/cookie_select.info" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/cookie_select/cookie_select.install" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/cookie_select/cookie_select.module" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/cookie_select/cookie_select_theme.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sites/all/modules/delivery.tar.gz" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/artfire.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/artfire.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/images/bg_product_special.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/images/bg_product_special.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/bg_product_special.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/bg_product_special.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/images/bg_search_product_name.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/images/bg_search_product_name.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/bg_search_product_name.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/bg_search_product_name.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/images/btn_close.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/images/btn_close.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/btn_close.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/btn_close.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/images/btn_product_label_new.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/images/btn_product_label_new.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/btn_product_label_new.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/btn_product_label_new.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/images/btn_product_label_sale.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/images/btn_product_label_sale.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/btn_product_label_sale.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/btn_product_label_sale.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/cart.png" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/cart.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/cookies-bg.png" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/cookies-bg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/cookies_shop_btm.png" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/cookies_shop_btm.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/cookies_shop_top.png" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/cookies_shop_top.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/etsy.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/etsy.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/facebook.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/facebook.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/fb.png" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/fb.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/flickr.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/flickr.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/footer-bg.png" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/footer-bg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/ft-bg.png" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/ft-bg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/fonts/gil____.eot" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/fonts/gil____.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/fonts/gil____.ttf" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/fonts/gil____.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/fonts/gil____.woff" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/fonts/gil____.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/google.png" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/google.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/instragram.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/instragram.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/korea.png" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/korea.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/linkedin.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/linkedin.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/logo.png" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/logo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/mail.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/mail.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/medicare-shadow.png" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/medicare-shadow.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/medicare.png" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/medicare.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/our-cookies.png" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/our-cookies.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/pinterest.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/pinterest.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/pro.png" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/pro.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/rss.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/rss.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/screenshot.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/screenshot.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/screenshot.png" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/screenshot.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/shiny/images/select_arrow.gif" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/shiny/images/select_arrow.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/seprater.png" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/seprater.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/singapore.jpg" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/singapore.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/stumbleupon.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/stumbleupon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/tumblr.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/tumblr.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/twitter.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/twitter.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/twitter.png" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/twitter.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/uae.gif" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/uae.gif" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/uk.jpg" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/images/uk.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/vimeo.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/vimeo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/youtube.png" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/images/social/youtube.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/libraries/paymill/tests/Services/Paymill/ClientsTest.php" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/libraries/paymill/tests/Services/Paymill/ClientsTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/MCAPI.class.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/MCAPI.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/inc/MCAPI.class.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/inc/MCAPI.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/libraries/paymill/tests/Services/Paymill/PaymentsTest.php" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/libraries/paymill/tests/Services/Paymill/PaymentsTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/libraries/paymill/README.md" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/libraries/paymill/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/eva/README.txt" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/eva/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/css/README.txt" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/css/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/preprocess/README.txt" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/preprocess/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/process/README.txt" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/process/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/templates/README.txt" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/templates/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/templates/README.txt" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/templates/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/commerce_steps/README.txt" afterPath="$PROJECT_DIR$/sites/all/modules/commerce_steps/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/README.txt" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/preprocess/README.txt" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/preprocess/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/process/README.txt" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/process/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/templates/README.txt" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/templates/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/README" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/README" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/libraries/paymill/tests/Services/Paymill/TestBase.php" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/libraries/paymill/tests/Services/Paymill/TestBase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/ben_cookies-alpha-default-narrow.css" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/ben_cookies-alpha-default-narrow.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/ben_cookies-alpha-default-normal.css" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/ben_cookies-alpha-default-normal.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/ben_cookies-alpha-default-wide.css" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/ben_cookies-alpha-default-wide.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/ben_cookies-alpha-default.css" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/ben_cookies-alpha-default.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/ben_cookies_style.css" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/ben_cookies_style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/bens_cookies.info" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/bens_cookies.info" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/scripts/build.sh" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/scripts/build.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/css/commerce-kickstart-theme-alpha-default-narrow.css" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/css/commerce-kickstart-theme-alpha-default-narrow.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/scss/commerce-kickstart-theme-alpha-default-narrow.scss" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/scss/commerce-kickstart-theme-alpha-default-narrow.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/css/commerce-kickstart-theme-alpha-default-normal.css" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/css/commerce-kickstart-theme-alpha-default-normal.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/scss/commerce-kickstart-theme-alpha-default-normal.scss" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/scss/commerce-kickstart-theme-alpha-default-normal.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/css/commerce-kickstart-theme-alpha-default-wide.css" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/css/commerce-kickstart-theme-alpha-default-wide.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/scss/commerce-kickstart-theme-alpha-default-wide.scss" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/scss/commerce-kickstart-theme-alpha-default-wide.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/css/commerce-kickstart-theme-alpha-default.css" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/css/commerce-kickstart-theme-alpha-default.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/scss/commerce-kickstart-theme-alpha-default.scss" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/scss/commerce-kickstart-theme-alpha-default.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_fancy_attributes/commerce_fancy_attributes.css" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_fancy_attributes/commerce_fancy_attributes.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_fancy_attributes/commerce_fancy_attributes.install" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_fancy_attributes/commerce_fancy_attributes.install" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_fancy_attributes/commerce_fancy_attributes.js" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_fancy_attributes/commerce_fancy_attributes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_fancy_attributes/commerce_fancy_attributes.module" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_fancy_attributes/commerce_fancy_attributes.module" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_hosted_pci/commerce_hosted_pci.js" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_hosted_pci/commerce_hosted_pci.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/includes/kiala/commerce_kiala.api.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/includes/kiala/commerce_kiala.api.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/includes/kiala/commerce_kiala.api.locateselect.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/includes/kiala/commerce_kiala.api.locateselect.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/includes/views/commerce_kiala.views.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/includes/views/commerce_kiala.views.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_ps/commerce_kiala_ps.rules.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_ps/commerce_kiala_ps.rules.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_ps/commerce_kiala_ps.rules_defaults.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_ps/commerce_kiala_ps.rules_defaults.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_ps/includes/views/commerce_kiala_ps.views.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_ps/includes/views/commerce_kiala_ps.views.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_ps/includes/kiala/commerce_kiala_ps.ws.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_ps/includes/kiala/commerce_kiala_ps.ws.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_ps/includes/commerce_kiala_ps_ws_log.controller.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_ps/includes/commerce_kiala_ps_ws_log.controller.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_ps/includes/commerce_kiala_ps_ws_log.entity.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_ps/includes/commerce_kiala_ps_ws_log.entity.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_ps/includes/commerce_kiala_ps_ws_log.metadatacontroller.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_ps/includes/commerce_kiala_ps_ws_log.metadatacontroller.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_track/commerce_kiala_track.rules.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_track/commerce_kiala_track.rules.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_track/commerce_kiala_track.rules_defaults.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce_kiala/modules/commerce_kiala_track/commerce_kiala_track.rules_defaults.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/css/commerce_kickstart_style.css" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/css/commerce_kickstart_style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/scss/commerce_kickstart_style.scss" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/scss/commerce_kickstart_style.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce/modules/line_item/commerce_line_item.module" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/commerce/modules/line_item/commerce_line_item.module" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/js/common.js" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/js/common.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/inc/config.inc.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/inc/config.inc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/cookie_selection/css/cookie_select.css" afterPath="$PROJECT_DIR$/sites/all/modules/cookie_selection/css/cookie_select.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/cookie_selection/.idea/cookie_selection.iml" afterPath="$PROJECT_DIR$/sites/all/modules/cookie_selection/.idea/cookie_selection.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/cookie_selection/cookie_selection.install" afterPath="$PROJECT_DIR$/sites/all/modules/cookie_selection/cookie_selection.install" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/countries/views/countries.views.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/countries/views/countries.views.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/ctools/tests/ctools.drush.sh" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/ctools/tests/ctools.drush.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/custom.html" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/custom.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/custom.js" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/custom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/delivery/js/date.js" afterPath="$PROJECT_DIR$/sites/all/modules/delivery/js/date.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/delivery/includes/delivery.checkout_pane.inc" afterPath="$PROJECT_DIR$/sites/all/modules/delivery/includes/delivery.checkout_pane.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/delivery/css/delivery.css" afterPath="$PROJECT_DIR$/sites/all/modules/delivery/css/delivery.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/delivery/delivery.module" afterPath="$PROJECT_DIR$/sites/all/modules/delivery/delivery.module" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/drupal-org.make" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/drupal-org.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/dynamic.html" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/dynamic.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/eva/eva-display-entity-view.tpl.php" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/eva/eva-display-entity-view.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/eva/eva.module" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/eva/eva.module" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/eva/eva.theme.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/eva/eva.theme.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/eva/eva.views.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/eva/eva.views.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/eva/eva_plugin_display_entity.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/eva/eva_plugin_display_entity.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/js/feature.js" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/js/feature.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/features/includes/features.field.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/features/includes/features.field.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/js/featureset.js" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/js/featureset.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/fences/templates/field--fences-div.tpl.php" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/fences/templates/field--fences-div.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/giftcard/includes/giftcard.checkout_pane.inc" afterPath="$PROJECT_DIR$/sites/all/modules/giftcard/includes/giftcard.checkout_pane.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/giftcard/giftcard.module" afterPath="$PROJECT_DIR$/sites/all/modules/giftcard/giftcard.module" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/fonts/gil____.css" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/fonts/gil____.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/fonts/gil____.svg" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/fonts/gil____.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/css/global.css" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/css/global.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/index.html" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/wvega-timepicker/jquery.timepicker.css" afterPath="$PROJECT_DIR$/sites/all/libraries/wvega-timepicker/jquery.timepicker.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/wvega-timepicker/jquery.timepicker.js" afterPath="$PROJECT_DIR$/sites/all/libraries/wvega-timepicker/jquery.timepicker.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/wvega-timepicker/jquery.timepicker.min.css" afterPath="$PROJECT_DIR$/sites/all/libraries/wvega-timepicker/jquery.timepicker.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/wvega-timepicker/jquery.timepicker.min.js" afterPath="$PROJECT_DIR$/sites/all/libraries/wvega-timepicker/jquery.timepicker.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/delivery/js/london_date.js" afterPath="$PROJECT_DIR$/sites/all/modules/delivery/js/london_date.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_apikeyAdd.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_apikeyAdd.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_apikeyExpire.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_apikeyExpire.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignAbuseReports.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignAbuseReports.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignAdvice.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignAdvice.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignAnalytics.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignAnalytics.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignBounceMessages.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignBounceMessages.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignClickStats.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignClickStats.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignCreate.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignCreate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignDelete.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignDelete.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignEmailDomainPerformance.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignEmailDomainPerformance.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignEmailStatsAIMAll.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignEmailStatsAIMAll.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignReplicate.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignReplicate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignSchedule.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignSchedule.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignSegmentTest.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignSegmentTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignSendNow.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignSendNow.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignSendTest.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignSendTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignStats.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignStats.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignUnschedule.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignUnschedule.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignUpdate.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignUpdate.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignUpdateAB.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaignUpdateAB.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaigns.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_campaigns.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_folderAdd.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_folderAdd.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_folders.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_folders.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listAbuseReports.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listAbuseReports.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listBatchSubscribe.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listBatchSubscribe.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listBatchUnsubscribe.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listBatchUnsubscribe.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listGrowthHistory.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listGrowthHistory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listMemberInfo.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listMemberInfo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listMembers.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listMembers.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listSubscribe.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listSubscribe.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listUnsubscribe.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listUnsubscribe.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listUpdateMember.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_listUpdateMember.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_lists.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_lists.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_templates.php" afterPath="$PROJECT_DIR$/sites/all/libraries/mailchimp/examples/mcapi_templates.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/medicare-dynamic-ds.js" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/medicare-dynamic-ds.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/medicare-static-ds.js" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/medicare-static-ds.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/medicare.csv" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/medicare.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/neo.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/neo.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/templates/node.tpl.php" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/templates/node.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/order_xml/order_xml.module" afterPath="$PROJECT_DIR$/sites/all/modules/order_xml/order_xml.module" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/panel.html" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/panel.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/panel.js" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/panel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/js/panel.js" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/js/panel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/places.html" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/places.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/places.js" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/examples/places.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/reference.html" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/reference.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/templates/region--menu.tpl.php" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/templates/region--menu.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/templates/region--menu.tpl.php" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/templates/region--menu.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/rules/ui/rules.ui.css" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/rules/ui/rules.ui.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/giftcard/js/script.js" afterPath="$PROJECT_DIR$/sites/all/modules/giftcard/js/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/default/settings.php" afterPath="$PROJECT_DIR$/sites/default/settings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/js/static-datasource.js" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/js/static-datasource.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/js/store-locator.compiled.js" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/js/store-locator.compiled.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/js/store.js" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/js/store.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/css/storelocator.css" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/css/storelocator.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/template.php" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/commerce_kickstart_theme/template.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/template.php" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/themes/omega_kickstart/template.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/themes/bens_cookies/template.php" afterPath="$PROJECT_DIR$/sites/all/themes/bens_cookies/template.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/field/modules/text/text.module" afterPath="$PROJECT_DIR$/modules/field/modules/text/text.module" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/cookie_selection/theme/text_cookie_temp.tpl.php" afterPath="$PROJECT_DIR$/sites/all/modules/cookie_selection/theme/text_cookie_temp.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/rules/ui/ui.data.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/rules/ui/ui.data.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/rules/ui/ui.plugins.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/rules/ui/ui.plugins.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/rules/ui/ui.theme.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/rules/ui/ui.theme.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/cookie_selection/.idea/vcs.xml" afterPath="$PROJECT_DIR$/sites/all/modules/cookie_selection/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/libraries/storelocator/js/view.js" afterPath="$PROJECT_DIR$/sites/all/libraries/storelocator/js/view.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/views_megarow/theme/views-view-table.tpl.php" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/views_megarow/theme/views-view-table.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/views_megarow/includes/views/handlers/views_handler_field_megarow_links.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/views_megarow/includes/views/handlers/views_handler_field_megarow_links.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/views_megarow/views_megarow.js" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/views_megarow/views_megarow.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/views_megarow/views_megarow.module" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/views_megarow/views_megarow.module" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/views_megarow/includes/views/views_megarow.views.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/views_megarow/includes/views/views_megarow.views.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/views_megarow/includes/views/plugins/views_plugin_style_table_megarows.inc" afterPath="$PROJECT_DIR$/profiles/commerce_kickstart/modules/contrib/views_megarow/includes/views/plugins/views_plugin_style_table_megarows.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sites/all/modules/cookie_selection/.idea/workspace.xml" afterPath="$PROJECT_DIR$/sites/all/modules/cookie_selection/.idea/workspace.xml" />
+    </list>
+    <ignored path="cookies.loc.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="cookies.loc" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="ben_cookies_style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/themes/bens_cookies/css/ben_cookies_style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1262" column="33" selection-start="31618" selection-end="31618" vertical-scroll-proportion="0.0" vertical-offset="22447" max-vertical-offset="23148">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/js/script.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="10" selection-start="1094" selection-end="1094" vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="522">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="giftcard.module" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/giftcard/giftcard.module">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="149" column="57" selection-start="4111" selection-end="4111" vertical-scroll-proportion="1.8888888" vertical-offset="2733" max-vertical-offset="3258">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/default/settings.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="0" selection-start="1343" selection-end="1343" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="1422">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="giftcard.checkout_pane.inc" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/giftcard/includes/giftcard.checkout_pane.inc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="95" column="97" selection-start="2983" selection-end="2983" vertical-scroll-proportion="0.6328125" vertical-offset="1386" max-vertical-offset="2772">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="giftcard.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/giftcard/css/giftcard.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="143" column="1" selection-start="3629" selection-end="3629" vertical-scroll-proportion="0.0" vertical-offset="2112" max-vertical-offset="2682">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/giftcard/js/script.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="12" selection-start="166" selection-end="166" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cookie_selection.install" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/modules/cookie_selection/cookie_selection.install">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="40" selection-start="333" selection-end="333" vertical-scroll-proportion="-5.3333335" vertical-offset="54" max-vertical-offset="3294">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/sites/all/modules/slimtraider_profile/slimtraider_profile.info" />
+        <option value="$PROJECT_DIR$/sites/all/modules/delivery/js/script.js" />
+        <option value="$PROJECT_DIR$/sites/all/modules/delivery/delivery.module" />
+        <option value="$PROJECT_DIR$/sites/all/modules/delivery/includes/delivery.checkout_pane.inc" />
+        <option value="$PROJECT_DIR$/sites/all/modules/delivery/js/date.js" />
+        <option value="$PROJECT_DIR$/sites/all/modules/delivery/js/london_date.js" />
+        <option value="$PROJECT_DIR$/sites/all/modules/delivery/css/delivery.css" />
+        <option value="$PROJECT_DIR$/sites/all/modules/custom/js/script.js" />
+        <option value="$PROJECT_DIR$/sites/all/themes/bens_cookies/css/ben_cookies_style.css" />
+        <option value="$PROJECT_DIR$/sites/all/modules/giftcard/giftcard.module" />
+        <option value="$PROJECT_DIR$/sites/default/settings.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/sites/all/modules/slimtraider_profile/slimtraider_profile.module" />
+        <option value="$PROJECT_DIR$/sites/all/modules/giftcard/css/giftcard.css" />
+        <option value="$PROJECT_DIR$/sites/all/modules/giftcard/js/script.js" />
+        <option value="$PROJECT_DIR$/sites/all/modules/giftcard/includes/giftcard.checkout_pane.inc" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpTemplates">
+    <option name="NEW_PHP_FILE_LAST_EXTENSION" value="module" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-1" />
+    <option name="y" value="24" />
+    <option name="width" value="1368" />
+    <option name="height" value="745" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookies.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookies.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookies.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookies.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookies.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookies.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookies.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookies.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookies.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookies.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookies.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="giftcard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookies.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookies.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="giftcard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookies.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookies.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="giftcard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="includes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookies.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cookies.loc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sites" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="all" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="giftcard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../commerce.loc" />
+    <property name="FullScreen" value="false" />
+  </component>
+  <component name="PublishConfig">
+    <servers>
+      <server id="09a93ab8-6a6a-459d-a02c-6ef0488c834b">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </server>
+    </servers>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sites/all/modules/cookie_selection/theme" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PHPUnit.contrib">
+    <configuration default="false" name="cookies.loc" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner directory="$PROJECT_DIR$" />
+      <method />
+    </configuration>
+    <configuration default="false" name="contrib" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner directory="$PROJECT_DIR$/profiles/minimal/commerce_kickstart/modules/contrib" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="PHPUnit.cookies.loc" />
+      <item index="1" class="java.lang.String" itemvalue="PHPUnit.contrib" />
+    </list>
+    <recent_temporary>
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="PHPUnit.contrib" />
+        <item index="1" class="java.lang.String" itemvalue="PHPUnit.cookies.loc" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3d892738-3a2a-4e31-8427-e3641932528e" name="Default" comment="" />
+      <created>1383463106665</created>
+      <updated>1383463106665</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="3">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-1" y="24" width="1368" height="745" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32669982" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289256" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25757575" sideWeight="0.69917357" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5008264" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30082646" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/slimtraider_profile/slimtraider_profile.info">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="15" selection-start="15" selection-end="15" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="552">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/delivery/delivery.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="47" selection-start="660" selection-end="660" vertical-scroll-proportion="0.94921875" vertical-offset="0" max-vertical-offset="2970" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/delivery/includes/delivery.checkout_pane.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="140" column="43" selection-start="5933" selection-end="5933" vertical-scroll-proportion="1.125" vertical-offset="1944" max-vertical-offset="4572" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/delivery/js/london_date.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="104" selection-start="1860" selection-end="1860" vertical-scroll-proportion="0.0" vertical-offset="582" max-vertical-offset="1152" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/delivery/js/date.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="53" selection-start="1287" selection-end="1287" vertical-scroll-proportion="0.6086956" vertical-offset="402" max-vertical-offset="954" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/delivery/css/delivery.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="15" selection-start="342" selection-end="342" vertical-scroll-proportion="0.65217394" vertical-offset="0" max-vertical-offset="552" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/custom/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="10" selection-start="1094" selection-end="1094" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="522">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/bens_cookies/css/ben_cookies_style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1262" column="33" selection-start="31618" selection-end="31618" vertical-scroll-proportion="0.0" vertical-offset="22447" max-vertical-offset="23148">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="479" selection-end="479" vertical-scroll-proportion="0.43575418" vertical-offset="0" max-vertical-offset="2610" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/default/settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="0" selection-start="1343" selection-end="1343" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="1422">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/slimtraider_profile/slimtraider_profile.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="32" selection-start="331" selection-end="331" vertical-scroll-proportion="0.5485714" vertical-offset="0" max-vertical-offset="525">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/cookie_selection/cookie_selection.install">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="40" selection-start="333" selection-end="333" vertical-scroll-proportion="-5.3333335" vertical-offset="54" max-vertical-offset="3294">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/giftcard/giftcard.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="149" column="57" selection-start="4111" selection-end="4111" vertical-scroll-proportion="1.8888888" vertical-offset="2733" max-vertical-offset="3258">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/giftcard/css/giftcard.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="143" column="1" selection-start="3629" selection-end="3629" vertical-scroll-proportion="0.0" vertical-offset="2112" max-vertical-offset="2682">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/giftcard/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="12" selection-start="166" selection-end="166" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/giftcard/includes/giftcard.checkout_pane.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="97" selection-start="2983" selection-end="2983" vertical-scroll-proportion="0.6328125" vertical-offset="1386" max-vertical-offset="2772">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+
